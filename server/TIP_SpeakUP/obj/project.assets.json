@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Users\\Wojtus\\source\\repos\\TIP_SpeakUP\\TIP_SpeakUP\\TIP_SpeakUP.csproj",
+      "projectUniqueName": "E:\\Users\\Wojtus\\source\\repos\\git\\TIP_SpeakUP\\server\\TIP_SpeakUP\\TIP_SpeakUP.csproj",
       "projectName": "TIP_SpeakUP",
-      "projectPath": "E:\\Users\\Wojtus\\source\\repos\\TIP_SpeakUP\\TIP_SpeakUP\\TIP_SpeakUP.csproj",
+      "projectPath": "E:\\Users\\Wojtus\\source\\repos\\git\\TIP_SpeakUP\\server\\TIP_SpeakUP\\TIP_SpeakUP.csproj",
       "packagesPath": "C:\\Users\\Wojtus\\.nuget\\packages\\",
-      "outputPath": "E:\\Users\\Wojtus\\source\\repos\\TIP_SpeakUP\\TIP_SpeakUP\\obj\\",
+      "outputPath": "E:\\Users\\Wojtus\\source\\repos\\git\\TIP_SpeakUP\\server\\TIP_SpeakUP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

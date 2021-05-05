@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 
 namespace TIP_SpeakUP
 {
@@ -6,7 +11,10 @@ namespace TIP_SpeakUP
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //starting server
+            Server serwer = new Server();
+            Console.WriteLine("witam");
+            Console.ReadKey();
         }
     }
 }
