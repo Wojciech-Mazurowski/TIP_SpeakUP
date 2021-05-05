@@ -68,6 +68,9 @@ namespace TIP_SpeakUP
                 if(sData == "exit")
                 {
                     bClientConnected = false;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(client.Client.RemoteEndPoint + ": " + "disconnected");
+                    Console.ResetColor();
                 }
 
             }

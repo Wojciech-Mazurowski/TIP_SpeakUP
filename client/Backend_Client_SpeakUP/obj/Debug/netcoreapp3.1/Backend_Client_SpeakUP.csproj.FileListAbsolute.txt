@@ -1,0 +1,13 @@
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\Backend_Client_SpeakUP\bin\Debug\netcoreapp3.1\Backend_Client_SpeakUP.exe
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\Backend_Client_SpeakUP\bin\Debug\netcoreapp3.1\Backend_Client_SpeakUP.deps.json
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\Backend_Client_SpeakUP\bin\Debug\netcoreapp3.1\Backend_Client_SpeakUP.runtimeconfig.json
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\Backend_Client_SpeakUP\bin\Debug\netcoreapp3.1\Backend_Client_SpeakUP.runtimeconfig.dev.json
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\Backend_Client_SpeakUP\bin\Debug\netcoreapp3.1\Backend_Client_SpeakUP.dll
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\Backend_Client_SpeakUP\bin\Debug\netcoreapp3.1\Backend_Client_SpeakUP.pdb
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\Backend_Client_SpeakUP\obj\Debug\netcoreapp3.1\Backend_Client_SpeakUP.csprojAssemblyReference.cache
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\Backend_Client_SpeakUP\obj\Debug\netcoreapp3.1\Backend_Client_SpeakUP.AssemblyInfoInputs.cache
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\Backend_Client_SpeakUP\obj\Debug\netcoreapp3.1\Backend_Client_SpeakUP.AssemblyInfo.cs
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\Backend_Client_SpeakUP\obj\Debug\netcoreapp3.1\Backend_Client_SpeakUP.csproj.CoreCompileInputs.cache
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\Backend_Client_SpeakUP\obj\Debug\netcoreapp3.1\Backend_Client_SpeakUP.dll
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\Backend_Client_SpeakUP\obj\Debug\netcoreapp3.1\Backend_Client_SpeakUP.pdb
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\Backend_Client_SpeakUP\obj\Debug\netcoreapp3.1\Backend_Client_SpeakUP.genruntimeconfig.cache
