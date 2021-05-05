@@ -47,30 +47,31 @@ namespace TIP_SpeakUP
 
         public void HandleClient(object obj)
         {
-            // retrieve client from parameter passed to thread
+            // retrieve client 
             TcpClient client = (TcpClient)obj;
 
-            // sets two streams
+            // set writer/reader stream
             StreamWriter sWriter = new StreamWriter(client.GetStream(), Encoding.ASCII);
             StreamReader sReader = new StreamReader(client.GetStream(), Encoding.ASCII);
-            // you could use the NetworkStream to read and write, 
-            // but there is no forcing flush, even when requested
-
             Boolean bClientConnected = true;
-            String sData = null;
+            String Data = null;
 
             while (bClientConnected)
             {
-                // reads from stream
-                sData = sReader.ReadLine();
-                sWriter.WriteLine(sData);
+
+                Data = sReader.ReadLine();
                 sWriter.Flush();
-                if(sData == "exit")
+                if (Data == "exit")
                 {
                     bClientConnected = false;
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(client.Client.RemoteEndPoint + ": " + "disconnected");
                     Console.ResetColor();
+                }
+                else
+                {
+                    string ans = Functions.DecodeOperation(Data);
+                    sWriter.WriteLine(ans);
                 }
 
             }
