@@ -1,0 +1,11 @@
+C:\Users\Greg\source\repos\SpeakUP\SpeakUP\bin\Debug\SpeakUP.exe.config
+C:\Users\Greg\source\repos\SpeakUP\SpeakUP\bin\Debug\SpeakUP.exe
+C:\Users\Greg\source\repos\SpeakUP\SpeakUP\bin\Debug\SpeakUP.pdb
+C:\Users\Greg\source\repos\SpeakUP\SpeakUP\obj\Debug\SpeakUP.csprojAssemblyReference.cache
+C:\Users\Greg\source\repos\SpeakUP\SpeakUP\obj\Debug\SpeakUP.LoginForm.resources
+C:\Users\Greg\source\repos\SpeakUP\SpeakUP\obj\Debug\SpeakUP.Properties.Resources.resources
+C:\Users\Greg\source\repos\SpeakUP\SpeakUP\obj\Debug\SpeakUP.csproj.GenerateResource.cache
+C:\Users\Greg\source\repos\SpeakUP\SpeakUP\obj\Debug\SpeakUP.csproj.CoreCompileInputs.cache
+C:\Users\Greg\source\repos\SpeakUP\SpeakUP\obj\Debug\SpeakUP.exe
+C:\Users\Greg\source\repos\SpeakUP\SpeakUP\obj\Debug\SpeakUP.pdb
+C:\Users\Greg\source\repos\SpeakUP\SpeakUP\obj\Debug\SpeakUP.MainForm.resources
