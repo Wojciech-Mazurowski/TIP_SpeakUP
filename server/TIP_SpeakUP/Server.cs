@@ -25,11 +25,11 @@ namespace TIP_SpeakUP
             _isRunning = true;
             Console.WriteLine("ip server: " + ip);
             Console.WriteLine("-----------------------------------------------------------------\n");
-            LoopClients();
+            ServerLoop();
         }
 
 
-        public void LoopClients()
+        public void ServerLoop()
         {
             while (_isRunning)
             {
