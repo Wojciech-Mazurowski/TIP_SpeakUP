@@ -23,8 +23,8 @@ namespace TIP_SpeakUP
             _server = new TcpListener(ip, port);
             _server.Start();
             _isRunning = true;
-            Console.WriteLine("ip server: " + ip);
-            Console.WriteLine("-----------------------------------------------------------------\n");
+            Console.WriteLine("server ip: " + ip);
+            Console.WriteLine("------------------------------------------------------------------------\n");
             ServerLoop();
         }
 
