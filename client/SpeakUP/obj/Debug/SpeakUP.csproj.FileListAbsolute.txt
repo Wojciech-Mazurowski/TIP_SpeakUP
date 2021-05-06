@@ -20,3 +20,14 @@ C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.cspr
 C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.csproj.CoreCompileInputs.cache
 C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.exe
 C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.pdb
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\SpeakUP\bin\Debug\SpeakUP.exe.config
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\SpeakUP\bin\Debug\SpeakUP.exe
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\SpeakUP\bin\Debug\SpeakUP.pdb
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.csprojAssemblyReference.cache
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.LoginForm.resources
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.MainForm.resources
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.Properties.Resources.resources
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.csproj.GenerateResource.cache
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.csproj.CoreCompileInputs.cache
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.exe
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.pdb

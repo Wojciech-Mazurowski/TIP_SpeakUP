@@ -37,8 +37,7 @@ namespace SpeakUP
 
         public static void HandleCommunication()
         {
-            _streamReader = new StreamReader(_client.GetStream(), Encoding.ASCII);
-            _streamWriter = new StreamWriter(_client.GetStream(), Encoding.ASCII);
+          
 
             _isConnected = true;
 
@@ -66,7 +65,7 @@ namespace SpeakUP
 
         public static void close()
         {
-            send("bye");
+            send("BYE");
             _streamReader.Close();
             _streamWriter.Close();
             _client.Client.Close();

@@ -24,7 +24,7 @@ namespace TIP_SpeakUP
             _server.Start();
             _isRunning = true;
             Console.WriteLine("server ip: " + ip);
-            Console.WriteLine("------------------------------------------------------------------------\n");
+            Console.WriteLine("__________________________________________________________\n");
             ServerLoop();
         }
 
@@ -60,9 +60,11 @@ namespace TIP_SpeakUP
             {
 
                 Data = sReader.ReadLine();
-                sWriter.Flush();
+          
                 if (Data == "BYE")
                 {
+                    sWriter.WriteLine("BYE");
+                    sWriter.Flush();
                     bClientConnected = false;
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(client.Client.RemoteEndPoint + ": " + "disconnected");
@@ -72,6 +74,8 @@ namespace TIP_SpeakUP
                 {
                     string ans = Functions.DecodeOperation(Data);
                     sWriter.WriteLine(ans);
+                    sWriter.Flush();
+
                 }
 
             }
