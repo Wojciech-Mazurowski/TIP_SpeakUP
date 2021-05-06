@@ -12,14 +12,14 @@ namespace SpeakUP
         private static TcpClient _client;
         private static StreamReader _streamReader;
         private static StreamWriter _streamWriter;
-        private static Boolean _isConnected;
+        private static bool _isConnected;
         public static string data;
         public static string server_ip = "127.0.0.1";
         public static int port = 6969;
         public static String streamDataIncomming;
 
         public Client() { }
-        public static Boolean runclient()
+        public static bool runclient()
         {
             try
             {
@@ -65,7 +65,7 @@ namespace SpeakUP
 
         public static void close()
         {
-            send("BYE");
+            send("EXT");
             _streamReader.Close();
             _streamWriter.Close();
             _client.Client.Close();

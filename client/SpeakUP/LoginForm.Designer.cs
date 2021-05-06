@@ -52,6 +52,7 @@ namespace SpeakUP
             this.PasswordBox.Name = "PasswordBox";
             this.PasswordBox.Size = new System.Drawing.Size(315, 22);
             this.PasswordBox.TabIndex = 1;
+            this.PasswordBox.UseSystemPasswordChar = true;
             // 
             // LoginButton
             // 
