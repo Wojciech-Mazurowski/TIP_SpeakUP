@@ -14,7 +14,7 @@ namespace TIP_SpeakUP
         /// <returns></returns>
         public static string DecodeOperation(string OP)
         {
-            string anwser;
+            string anwser="";
             string[] Split_OP = OP.Split("$$");
             string login;
             string pass;
@@ -25,7 +25,11 @@ namespace TIP_SpeakUP
                     login = Split_OP[1];
                     pass = Split_OP[2];
                     //todo sprawdzenie loginu z bazy danych i zalogowanie ewentualne 
-                    anwser = "OK";
+                    anwser = "OK$$";
+                    foreach (var e in Voicechats)
+                    {
+                        anwser += e.Key;
+                    }
                     break;
                 case "REG":
                     login = Split_OP[1];
@@ -40,16 +44,21 @@ namespace TIP_SpeakUP
                     anwser = "OK";
                     break;
                 case "REF":
-                    anwser = "LST$$";
-                    foreach(var e in Voicechats)
+                    anwser = "OK$$";
+                    
+                    foreach (var e in Voicechats)
                     {
-                        anwser += e;
+                        anwser += e.Key;
                     }
                     break;
                 case "ADD":
                     string server_name = Split_OP[1];
                     Voicechats.Add(server_name, new List<string>());
-                    anwser = "OK";
+                    anwser = "OK$$";
+                    foreach (var e in Voicechats)
+                    {
+                        anwser += e.Key;
+                    }
                     break;
                 default:
                     anwser = "OK";
