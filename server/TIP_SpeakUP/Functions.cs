@@ -5,7 +5,7 @@ namespace TIP_SpeakUP
     class Functions
     {
 
-        private static List<string> VoiceChats = new List<string>();
+        private static Dictionary<string, List<string>> Voicechats = new Dictionary<string, List<string>>();
 
         /// <summary>
         ///  function realizing client requests
@@ -40,7 +40,17 @@ namespace TIP_SpeakUP
                     anwser = "OK";
                     break;
                 case "REF":
-                    //odswiezenie listy serverow
+                    anwser = "LST$$";
+                    foreach(var e in Voicechats)
+                    {
+                        anwser += e;
+                    }
+                    break;
+                case "ADD":
+                    string server_name = Split_OP[1];
+                    Voicechats.Add(server_name, new List<string>());
+                    anwser = "OK";
+                    break;
                 default:
                     anwser = "OK";
                     break;
