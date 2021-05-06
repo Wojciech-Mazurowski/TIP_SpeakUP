@@ -16,5 +16,12 @@ namespace SpeakUP
         {
             InitializeComponent();
         }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm Login = new LoginForm();
+            Login.Show();
+        }
     }
 }

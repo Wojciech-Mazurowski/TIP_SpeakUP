@@ -121,6 +121,7 @@ namespace SpeakUP
             this.LogOutButton.TabIndex = 9;
             this.LogOutButton.Text = "Log Out";
             this.LogOutButton.UseVisualStyleBackColor = true;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
             // MainForm
             // 

@@ -21,7 +21,7 @@ namespace SpeakUP
         {
             Client.runclient();
             string answ = Client.send("LOG$$"+ LoginBox.Text + "$$" + PasswordBox.Text);
-            string[] result = answ.Split(new string[] { "$$" },StringSplitOptions.None);
+            string[] result = answ.Split(new string[] {"$$"},StringSplitOptions.None);
             if (result[0] == "OK")
             {
                 this.Hide();
@@ -42,6 +42,9 @@ namespace SpeakUP
             if (result[0] == "OK")
             {
                 MessageBox.Show("Registration succesful!");
+                this.Hide();
+                MainForm Main = new MainForm();
+                Main.Show();
             }
             else {
                 Client.close();

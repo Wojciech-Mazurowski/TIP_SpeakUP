@@ -1,22 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 namespace SpeakUP
 {
-    class Program
+    static class Program
     {
-        static void Main(string[] args)
+        
+
+        [STAThread]
+        static void Main()
         {
-
-            Client.runclient();
-            string dane;
-
-            while (true)
-            {
-                Console.WriteLine("Podaj dane do wysłania:");
-                dane = Console.ReadLine();
-                dane = Client.send(dane);
-                Console.WriteLine(dane);
-
-            }
+            
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new LoginForm());
         }
     }
 }
