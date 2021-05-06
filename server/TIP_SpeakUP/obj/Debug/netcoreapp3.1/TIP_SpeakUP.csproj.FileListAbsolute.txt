@@ -7,7 +7,6 @@ E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\bin\Debug\netcor
 E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.csprojAssemblyReference.cache
 E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.AssemblyInfoInputs.cache
 E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.AssemblyInfo.cs
-E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.csproj.CoreCompileInputs.cache
 E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.dll
 E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.pdb
 E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.genruntimeconfig.cache
@@ -24,3 +23,10 @@ C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcorea
 C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.dll
 C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.pdb
 C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.genruntimeconfig.cache
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.csproj.CopyComplete
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\SQLite.Interop.dll
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.csproj.CoreCompileInputs.cache
