@@ -25,10 +25,10 @@ namespace TIP_SpeakUP
                     login = Split_OP[1];
                     pass = Split_OP[2];
                     //todo sprawdzenie loginu z bazy danych i zalogowanie ewentualne 
-                    anwser = "OK$$";
+                    anwser = "OK";
                     foreach (var e in Voicechats)
                     {
-                        anwser += e.Key;
+                        anwser += "$$" + e.Key;
                     }
                     break;
                 case "REG":
@@ -44,20 +44,20 @@ namespace TIP_SpeakUP
                     anwser = "OK";
                     break;
                 case "REF":
-                    anwser = "OK$$";
+                    anwser = "OK";
                     
                     foreach (var e in Voicechats)
                     {
-                        anwser += e.Key;
+                        anwser += "$$" + e.Key;
                     }
                     break;
                 case "ADD":
                     string server_name = Split_OP[1];
                     Voicechats.Add(server_name, new List<string>());
-                    anwser = "OK$$";
+                    anwser = "OK";
                     foreach (var e in Voicechats)
                     {
-                        anwser += e.Key + "$$";
+                        anwser +="$$"+e.Key;
                         
                     }
                     break;

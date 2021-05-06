@@ -32,7 +32,7 @@ namespace SpeakUP
             this.NameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // NameBox
@@ -65,29 +65,29 @@ namespace SpeakUP
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // CancelButton
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(399, 135);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 38);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.CancelButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.CancelButton.Location = new System.Drawing.Point(399, 135);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(90, 38);
+            this.CancelButton.TabIndex = 3;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // Form1
+            // ChannelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(595, 265);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NameBox);
-            this.Name = "Form1";
+            this.Name = "ChannelForm";
             this.Text = "Add channel";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -99,6 +99,6 @@ namespace SpeakUP
         private System.Windows.Forms.TextBox NameBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CancelButton;
     }
 }

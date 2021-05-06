@@ -27,6 +27,7 @@ namespace SpeakUP
                 result = result.Skip(1).ToArray();
                 this.Hide();
                 MainForm Main = new MainForm(result);
+                Main.FormClosed += (s, args) => this.Close();
                 Main.Show();
             }
             else {
@@ -46,6 +47,7 @@ namespace SpeakUP
                 result = result.Skip(1).ToArray();
                 this.Hide();
                 MainForm Main = new MainForm(result);
+                Main.FormClosed += (s, args) => this.Close();
                 Main.Show();
             }
             else {

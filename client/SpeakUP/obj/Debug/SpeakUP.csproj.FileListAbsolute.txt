@@ -32,3 +32,4 @@ E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.cs
 E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.exe
 E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.pdb
 C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.ChannelForm.resources
+E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\client\SpeakUP\obj\Debug\SpeakUP.ChannelForm.resources
