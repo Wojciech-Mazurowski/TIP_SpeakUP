@@ -12,7 +12,7 @@ namespace TIP_SpeakUP
     class Server
     {
         private TcpListener _server;
-        private Boolean _isRunning;
+        private bool _isRunning;
         private IPAddress ip = IPAddress.Parse("127.0.0.1");
         private int port = 6969;
 
@@ -61,9 +61,9 @@ namespace TIP_SpeakUP
 
                 Data = sReader.ReadLine();
           
-                if (Data == "BYE")
+                if (Data == "EXT")
                 {
-                    sWriter.WriteLine("BYE");
+                    sWriter.WriteLine("EXT");
                     sWriter.Flush();
                     bClientConnected = false;
                     Console.ForegroundColor = ConsoleColor.Red;

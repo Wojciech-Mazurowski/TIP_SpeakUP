@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace TIP_SpeakUP
 {
@@ -22,6 +18,7 @@ namespace TIP_SpeakUP
             string[] Split_OP = OP.Split("$$");
             string login;
             string pass;
+            string new_pass;
             switch (Split_OP[0])
             {
                 case "LOG":
@@ -36,6 +33,14 @@ namespace TIP_SpeakUP
                     //todo rejestracja do bazy danych i zalogowanie
                     anwser = "OK";
                     break;
+                case "CHP":
+                    login = Split_OP[1];
+                    new_pass = Split_OP[2];
+                    //todo zmiana hasła
+                    anwser = "OK";
+                    break;
+                case "REF":
+                    //odswiezenie listy serverow
                 default:
                     anwser = "OK";
                     break;

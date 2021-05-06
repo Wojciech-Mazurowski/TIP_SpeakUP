@@ -13,4 +13,8 @@ CHP$$NICKNAME$$NEWPASSWORD  - zmiana has³a (juz zalogowany uzytkownik) - Error m
 OK
 ERR$$Password too weak
 
-BYE - Logout
+EXT - Logout
+
+
+
+REF - przycisk odswiezajacy servery
