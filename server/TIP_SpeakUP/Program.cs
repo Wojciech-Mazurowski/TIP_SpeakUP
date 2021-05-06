@@ -11,6 +11,7 @@ namespace TIP_SpeakUP
     {
         static void Main(string[] args)
         {
+
             //starting server
             Server serwer = new Server();
             Console.WriteLine("witam");

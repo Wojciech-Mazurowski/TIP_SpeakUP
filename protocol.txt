@@ -2,15 +2,15 @@
 
 LOG$$NICKNAME$$PASSWORD	- logowanie
 OK$$VoiceChatList
-Error message - ("user does not exist" , "Wrong pass or login")
+ERR$("user does not exist" , "Wrong pass or login")  - Error message
 
 REG$$NICKNAME$$PASSWORD  - rejestracja
 OK
-Error message - ("Username taken","Password too weak", "Incorrect Username")
+ERR$$(Username taken,Password too weak,Incorrect Username) - Error message
 
 
-CHP$$NICKNAME$$NEWPASSWORD  - zmiana has³a (juz zalogowany uzytkownik)
+CHP$$NICKNAME$$NEWPASSWORD  - zmiana has³a (juz zalogowany uzytkownik) - Error message
 OK
-Error message - ("Password too weak")
+ERR$$Password too weak
 
 BYE - Logout

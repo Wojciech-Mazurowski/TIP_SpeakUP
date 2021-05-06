@@ -61,7 +61,7 @@ namespace TIP_SpeakUP
 
                 Data = sReader.ReadLine();
                 sWriter.Flush();
-                if (Data == "exit")
+                if (Data == "BYE")
                 {
                     bClientConnected = false;
                     Console.ForegroundColor = ConsoleColor.Red;
