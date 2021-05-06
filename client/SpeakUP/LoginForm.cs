@@ -24,8 +24,9 @@ namespace SpeakUP
             string[] result = answ.Split(new string[] {"$$"},StringSplitOptions.None);
             if (result[0] == "OK")
             {
+                result = result.Skip(1).ToArray();
                 this.Hide();
-                MainForm Main = new MainForm();
+                MainForm Main = new MainForm(result);
                 Main.Show();
             }
             else {
@@ -42,8 +43,9 @@ namespace SpeakUP
             if (result[0] == "OK")
             {
                 MessageBox.Show("Registration succesful!");
+                result = result.Skip(1).ToArray();
                 this.Hide();
-                MainForm Main = new MainForm();
+                MainForm Main = new MainForm(result);
                 Main.Show();
             }
             else {

@@ -11,10 +11,12 @@ using System.Windows.Forms;
 namespace SpeakUP
 {
     public partial class MainForm : Form
-    {
-        public MainForm()
+    {       
+        public MainForm(string[] Channels)
         {
             InitializeComponent();
+            ChannelBox.Items.Clear();
+            ChannelBox.Items.AddRange(Channels);
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)
@@ -23,6 +25,22 @@ namespace SpeakUP
             this.Hide();
             LoginForm Login = new LoginForm();
             Login.Show();
+        }
+
+        private void RefButton_Click(object sender, EventArgs e)
+        {
+            string answ = Client.send("REF");
+            string[] result = answ.Split(new string[] { "$$" }, StringSplitOptions.None);
+            ChannelBox.Items.Clear();
+            ChannelBox.Items.AddRange(result);
+
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ChannelForm chan = new ChannelForm(ChannelBox.Items.OfType<string>().ToArray());
+            chan.Show();
         }
     }
 }
