@@ -24,6 +24,7 @@ namespace SpeakUP
             Client.close();
             this.Hide();
             LoginForm Login = new LoginForm();
+            Login.FormClosed += (s, args) => this.Close();
             Login.Show();
         }
 
@@ -40,7 +41,23 @@ namespace SpeakUP
         {
             this.Hide();
             ChannelForm chan = new ChannelForm(ChannelBox.Items.OfType<string>().ToArray());
+            chan.FormClosed += (s, args) => this.Close();
             chan.Show();
+        }
+
+        private void ChannelBox_Click(object sender, EventArgs e)
+        {
+            if (ChannelBox.SelectedItem != null)
+            {
+                string answ = Client.send("SHW$$" + ChannelBox.SelectedItem.ToString());
+                string[] result = answ.Split(new string[] { "$$" }, StringSplitOptions.None);
+                if(result[0] == "OK")
+                {
+                    result = result.Skip(1).ToArray();
+                    UsersBox.Items.Clear();
+                    UsersBox.Items.AddRange(result);
+                }
+            }
         }
     }
 }

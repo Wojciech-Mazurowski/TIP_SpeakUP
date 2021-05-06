@@ -28,15 +28,17 @@ namespace SpeakUP
                 result = result.Skip(1).ToArray();
                 this.Hide();
                 MainForm Main = new MainForm(result);
+                Main.FormClosed += (s, args) => this.Close();
                 Main.Show();
             }
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             MainForm Main = new MainForm(Backup);
+            Main.FormClosed += (s, args) => this.Close();
             Main.Show();
         }
     }

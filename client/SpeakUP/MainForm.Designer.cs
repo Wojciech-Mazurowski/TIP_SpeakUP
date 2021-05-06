@@ -32,7 +32,6 @@ namespace SpeakUP
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ChannelBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.ChangeButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.UserLabel = new System.Windows.Forms.Label();
@@ -40,6 +39,7 @@ namespace SpeakUP
             this.LogOutButton = new System.Windows.Forms.Button();
             this.RefButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
+            this.UsersBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // ChannelBox
@@ -50,6 +50,7 @@ namespace SpeakUP
             this.ChannelBox.Name = "ChannelBox";
             this.ChannelBox.Size = new System.Drawing.Size(172, 340);
             this.ChannelBox.TabIndex = 0;
+            this.ChannelBox.Click += new System.EventHandler(this.ChannelBox_Click);
             // 
             // label1
             // 
@@ -61,14 +62,6 @@ namespace SpeakUP
             this.label1.Size = new System.Drawing.Size(140, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Channel List:";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(206, 81);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(293, 340);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
             // 
             // ChangeButton
             // 
@@ -152,12 +145,22 @@ namespace SpeakUP
             this.AddButton.UseVisualStyleBackColor = false;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
+            // UsersBox
+            // 
+            this.UsersBox.FormattingEnabled = true;
+            this.UsersBox.ItemHeight = 16;
+            this.UsersBox.Location = new System.Drawing.Point(206, 81);
+            this.UsersBox.Name = "UsersBox";
+            this.UsersBox.Size = new System.Drawing.Size(297, 340);
+            this.UsersBox.TabIndex = 12;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(664, 450);
+            this.Controls.Add(this.UsersBox);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.RefButton);
             this.Controls.Add(this.LogOutButton);
@@ -165,7 +168,6 @@ namespace SpeakUP
             this.Controls.Add(this.UserLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ChangeButton);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ChannelBox);
             this.Name = "MainForm";
@@ -179,7 +181,6 @@ namespace SpeakUP
 
         private System.Windows.Forms.ListBox ChannelBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button ChangeButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label UserLabel;
@@ -187,5 +188,6 @@ namespace SpeakUP
         private System.Windows.Forms.Button LogOutButton;
         private System.Windows.Forms.Button RefButton;
         private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.ListBox UsersBox;
     }
 }
