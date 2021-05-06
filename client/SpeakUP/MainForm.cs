@@ -19,6 +19,7 @@ namespace SpeakUP
 
         private void LogOutButton_Click(object sender, EventArgs e)
         {
+            Client.close();
             this.Hide();
             LoginForm Login = new LoginForm();
             Login.Show();
