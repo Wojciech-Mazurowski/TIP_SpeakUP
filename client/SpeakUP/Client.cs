@@ -5,7 +5,7 @@ using System.Text;
 using System.Net.Sockets;
 
 
-namespace Backend_Client_SpeakUP
+namespace SpeakUP
 {
     class Client
     {

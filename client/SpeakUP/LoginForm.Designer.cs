@@ -32,7 +32,7 @@ namespace SpeakUP
             this.LoginBox = new System.Windows.Forms.TextBox();
             this.PasswordBox = new System.Windows.Forms.TextBox();
             this.LoginButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.RegButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.LogoBox = new System.Windows.Forms.PictureBox();
@@ -64,18 +64,20 @@ namespace SpeakUP
             this.LoginButton.TabIndex = 2;
             this.LoginButton.Text = "Log In";
             this.LoginButton.UseVisualStyleBackColor = true;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
-            // button2
+            // RegButton
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(392, 314);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(156, 43);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Register";
-            this.button2.UseVisualStyleBackColor = true;
+            this.RegButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RegButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RegButton.Location = new System.Drawing.Point(392, 314);
+            this.RegButton.Name = "RegButton";
+            this.RegButton.Size = new System.Drawing.Size(156, 43);
+            this.RegButton.TabIndex = 3;
+            this.RegButton.Text = "Register";
+            this.RegButton.UseVisualStyleBackColor = true;
+            this.RegButton.Click += new System.EventHandler(this.RegButton_Click);
             // 
             // label1
             // 
@@ -119,7 +121,7 @@ namespace SpeakUP
             this.Controls.Add(this.LogoBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.RegButton);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.PasswordBox);
             this.Controls.Add(this.LoginBox);
@@ -136,7 +138,7 @@ namespace SpeakUP
         private System.Windows.Forms.TextBox LoginBox;
         private System.Windows.Forms.TextBox PasswordBox;
         private System.Windows.Forms.Button LoginButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button RegButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox LogoBox;
