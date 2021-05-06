@@ -57,7 +57,8 @@ namespace TIP_SpeakUP
                     anwser = "OK$$";
                     foreach (var e in Voicechats)
                     {
-                        anwser += e.Key;
+                        anwser += e.Key + "$$";
+                        
                     }
                     break;
                 default:
