@@ -58,7 +58,16 @@ namespace TIP_SpeakUP
                     foreach (var e in Voicechats)
                     {
                         anwser +="$$"+e.Key;
-                        
+                    }
+                    break;
+                case "SHW":
+                    anwser = "OK";
+                    foreach (var e in Voicechats)
+                    {
+                        if (e.Key == Split_OP[1])
+                        {
+                            e.Value.ForEach(x => anwser += "$$" + x);
+                        }
                     }
                     break;
                 default:
