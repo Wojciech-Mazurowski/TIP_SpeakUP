@@ -8,23 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Greg\\.nuget\\packages\\": {},
+    "C:\\Users\\Wojtus\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Greg\\Documents\\GitHub\\TIP_SpeakUP\\server\\TIP_SpeakUP\\TIP_SpeakUP.csproj",
+      "projectUniqueName": "E:\\Users\\Wojtus\\source\\repos\\git\\TIP_SpeakUP\\server\\TIP_SpeakUP\\TIP_SpeakUP.csproj",
       "projectName": "TIP_SpeakUP",
-      "projectPath": "C:\\Users\\Greg\\Documents\\GitHub\\TIP_SpeakUP\\server\\TIP_SpeakUP\\TIP_SpeakUP.csproj",
-      "packagesPath": "C:\\Users\\Greg\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Greg\\Documents\\GitHub\\TIP_SpeakUP\\server\\TIP_SpeakUP\\obj\\",
+      "projectPath": "E:\\Users\\Wojtus\\source\\repos\\git\\TIP_SpeakUP\\server\\TIP_SpeakUP\\TIP_SpeakUP.csproj",
+      "packagesPath": "C:\\Users\\Wojtus\\.nuget\\packages\\",
+      "outputPath": "E:\\Users\\Wojtus\\source\\repos\\git\\TIP_SpeakUP\\server\\TIP_SpeakUP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Greg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Wojtus\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -36,7 +36,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -48,7 +47,6 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -64,7 +62,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
