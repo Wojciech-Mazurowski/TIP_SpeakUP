@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Backend_Client_SpeakUP
+namespace SpeakUP
 {
     class Program
     {
