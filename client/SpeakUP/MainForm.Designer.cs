@@ -29,6 +29,7 @@ namespace SpeakUP
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ChannelBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -37,6 +38,8 @@ namespace SpeakUP
             this.UserLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LogOutButton = new System.Windows.Forms.Button();
+            this.RefButton = new System.Windows.Forms.Button();
+            this.AddButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ChannelBox
@@ -107,9 +110,9 @@ namespace SpeakUP
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(201, 53);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 25);
+            this.label3.Size = new System.Drawing.Size(141, 25);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Users:";
+            this.label3.Text = "Active Users:";
             // 
             // LogOutButton
             // 
@@ -123,12 +126,40 @@ namespace SpeakUP
             this.LogOutButton.UseVisualStyleBackColor = true;
             this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
+            // RefButton
+            // 
+            this.RefButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RefButton.BackgroundImage")));
+            this.RefButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RefButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RefButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RefButton.Location = new System.Drawing.Point(12, 12);
+            this.RefButton.Name = "RefButton";
+            this.RefButton.Size = new System.Drawing.Size(40, 38);
+            this.RefButton.TabIndex = 10;
+            this.RefButton.UseVisualStyleBackColor = true;
+            this.RefButton.Click += new System.EventHandler(this.RefButton_Click);
+            // 
+            // AddButton
+            // 
+            this.AddButton.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AddButton.Location = new System.Drawing.Point(527, 244);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(119, 55);
+            this.AddButton.TabIndex = 11;
+            this.AddButton.Text = "Add channel";
+            this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(664, 450);
+            this.Controls.Add(this.AddButton);
+            this.Controls.Add(this.RefButton);
             this.Controls.Add(this.LogOutButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.UserLabel);
@@ -154,5 +185,7 @@ namespace SpeakUP
         private System.Windows.Forms.Label UserLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button LogOutButton;
+        private System.Windows.Forms.Button RefButton;
+        private System.Windows.Forms.Button AddButton;
     }
 }

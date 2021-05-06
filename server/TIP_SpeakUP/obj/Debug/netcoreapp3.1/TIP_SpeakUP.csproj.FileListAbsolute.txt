@@ -11,3 +11,16 @@ E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcor
 E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.dll
 E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.pdb
 E:\Users\Wojtus\source\repos\git\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.genruntimeconfig.cache
+C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\bin\Debug\netcoreapp3.1\TIP_SpeakUP.exe
+C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\bin\Debug\netcoreapp3.1\TIP_SpeakUP.deps.json
+C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\bin\Debug\netcoreapp3.1\TIP_SpeakUP.runtimeconfig.json
+C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\bin\Debug\netcoreapp3.1\TIP_SpeakUP.runtimeconfig.dev.json
+C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\bin\Debug\netcoreapp3.1\TIP_SpeakUP.dll
+C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\bin\Debug\netcoreapp3.1\TIP_SpeakUP.pdb
+C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.csprojAssemblyReference.cache
+C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.AssemblyInfoInputs.cache
+C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.AssemblyInfo.cs
+C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.csproj.CoreCompileInputs.cache
+C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.dll
+C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.pdb
+C:\Users\Greg\Documents\GitHub\TIP_SpeakUP\server\TIP_SpeakUP\obj\Debug\netcoreapp3.1\TIP_SpeakUP.genruntimeconfig.cache
