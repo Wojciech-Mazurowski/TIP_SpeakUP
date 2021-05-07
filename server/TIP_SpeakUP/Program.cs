@@ -26,21 +26,29 @@ namespace TIP_SpeakUP
              }
              Console.WriteLine(ans);*/
 
-            //starting server
-            //   Server serwer = new Server();
-            //  Console.WriteLine("witam");
-            //  Console.ReadKey();
+                //starting server
+              Server serwer = new Server();
+              Console.WriteLine("witam");
 
 
 
-            DataBase_Operations db = new DataBase_Operations("URI=FILE:Users.db");
+
+
+
+
             //db.add_account("witam", "nara");
             //db.add_account("witam3", "nara");
             //db.add_account("witam4", "nara");
             //db.add_account("witam5", "nara");
             //db.get_accounts().ForEach(Console.WriteLine);
-            Console.WriteLine(db.get_account("witam2345")[0]);
 
+
+            //Console.WriteLine(Functions.db.get_account("witam")[2]);
+
+
+
+          
+            
         }
     }
 }

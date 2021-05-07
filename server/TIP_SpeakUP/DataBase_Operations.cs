@@ -11,7 +11,6 @@ namespace TIP_SpeakUP
         {
             database = new SQLiteConnection(cs);
 
-
             SQLiteCommand com = new SQLiteCommand(database);
             database.Open();
             com.CommandText = "CREATE TABLE IF NOT EXISTS USERS (ID INTEGER PRIMARY KEY AUTOINCREMENT,username varchar(255),password varchar(255))";
@@ -72,15 +71,24 @@ namespace TIP_SpeakUP
             com.CommandText = "SELECT * FROM USERS WHERE username = @username";
             com.Parameters.AddWithValue("@username", username);
 
-            sqlite_datareader = com.ExecuteReader();
-
-            while (sqlite_datareader.Read())
+            try
             {
-                account[0] = sqlite_datareader.GetString(1);
-                account[1] = sqlite_datareader.GetString(2);
+                sqlite_datareader = com.ExecuteReader();
+                while (sqlite_datareader.Read())
+                {
+                    account[0] = sqlite_datareader.GetString(1);
+                    account[1] = sqlite_datareader.GetString(2);
+                }
             }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            
             database.Close();
             //zwraca konto / jezeli pusty array to nie istnieje
+
             return account;
         }
 

@@ -5,7 +5,10 @@ namespace TIP_SpeakUP
     class Functions
     {
 
-        private static Dictionary<string, List<string>> Voicechats = new Dictionary<string, List<string>>();
+        public static Dictionary<string, List<string>> Voicechats = new Dictionary<string, List<string>>();
+       
+
+       
 
         /// <summary>
         ///  function realizing client requests
@@ -22,30 +25,21 @@ namespace TIP_SpeakUP
             switch (Split_OP[0])
             {
                 case "LOG":
-                    login = Split_OP[1];
-                    pass = Split_OP[2];
+                    (login, pass) = (Split_OP[1], Split_OP[2]);
                     //todo sprawdzenie loginu z bazy danych i zalogowanie ewentualne 
-                    anwser = "OK";
-                    foreach (var e in Voicechats)
-                    {
-                        anwser += "$$" + e.Key;
-                    }
+                    anwser = LoginService.Login(login, pass);
                     break;
                 case "REG":
-                    login = Split_OP[1];
-                    pass = Split_OP[2];
-                    //todo rejestracja do bazy danych i zalogowanie
-                    anwser = "OK";
+                    (login, pass) = (Split_OP[1], Split_OP[2]);
+                    anwser = LoginService.Register(login,pass);
                     break;
                 case "CHP":
-                    login = Split_OP[1];
-                    new_pass = Split_OP[2];
+                    (login, pass) = (Split_OP[1], Split_OP[2]);
                     //todo zmiana hasła
                     anwser = "OK";
                     break;
                 case "REF":
                     anwser = "OK";
-                    
                     foreach (var e in Voicechats)
                     {
                         anwser += "$$" + e.Key;

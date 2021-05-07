@@ -61,7 +61,7 @@ namespace TIP_SpeakUP
 
                 Data = sReader.ReadLine();
           
-                if (Data == "EXT")
+                if (Data == "EXT")//todo usunąć to gówno i wkleic to w Functions zeby latwiej usuwać z ActiveUsers
                 {
                     sWriter.WriteLine("EXT");
                     sWriter.Flush();
