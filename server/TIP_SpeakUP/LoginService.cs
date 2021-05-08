@@ -1,8 +1,15 @@
-﻿namespace TIP_SpeakUP
+﻿using System;
+using System.Collections.Generic;
+
+
+namespace TIP_SpeakUP
 {
     class LoginService
     {
         public static DataBase_Operations db = new DataBase_Operations("URI=FILE:Users.db");
+        public static List<string> ActiveUsers = new List<string>();
+
+
         private static bool Check_avability(string username)
         {
             string[] user = db.get_account(username);
@@ -61,6 +68,8 @@
                     {
                         anwser += "$$" + e.Key;
                     }
+
+                    ActiveUsers.Add(username);
                     return anwser;
                 }
                 else

@@ -6,7 +6,7 @@ namespace TIP_SpeakUP
     {
 
         public static Dictionary<string, List<string>> Voicechats = new Dictionary<string, List<string>>();
-       
+        
 
        
 
@@ -22,11 +22,12 @@ namespace TIP_SpeakUP
             string login;
             string pass;
             string new_pass;
+
+
             switch (Split_OP[0])
             {
                 case "LOG":
                     (login, pass) = (Split_OP[1], Split_OP[2]);
-                    //todo sprawdzenie loginu z bazy danych i zalogowanie ewentualne 
                     anwser = LoginService.Login(login, pass);
                     break;
                 case "REG":
