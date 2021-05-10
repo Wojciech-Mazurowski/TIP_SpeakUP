@@ -32,6 +32,7 @@ namespace SpeakUP
         {
             string answ = Client.send("REF");
             string[] result = answ.Split(new string[] { "$$" }, StringSplitOptions.None);
+            result = result.Skip(1).ToArray();
             ChannelBox.Items.Clear();
             ChannelBox.Items.AddRange(result);
 
