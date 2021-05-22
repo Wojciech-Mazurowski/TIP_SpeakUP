@@ -32,7 +32,6 @@ namespace SpeakUP
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ChannelBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ChangeButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.UserLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -63,17 +62,6 @@ namespace SpeakUP
             this.label1.Size = new System.Drawing.Size(140, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Channel List:";
-            // 
-            // ChangeButton
-            // 
-            this.ChangeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ChangeButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ChangeButton.Location = new System.Drawing.Point(527, 305);
-            this.ChangeButton.Name = "ChangeButton";
-            this.ChangeButton.Size = new System.Drawing.Size(119, 55);
-            this.ChangeButton.TabIndex = 5;
-            this.ChangeButton.Text = "Change Password";
-            this.ChangeButton.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -138,7 +126,7 @@ namespace SpeakUP
             this.AddButton.BackColor = System.Drawing.SystemColors.HotTrack;
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AddButton.Location = new System.Drawing.Point(527, 244);
+            this.AddButton.Location = new System.Drawing.Point(527, 301);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(119, 55);
             this.AddButton.TabIndex = 11;
@@ -168,7 +156,6 @@ namespace SpeakUP
             this.Controls.Add(this.label3);
             this.Controls.Add(this.UserLabel);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.ChangeButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ChannelBox);
             this.Name = "MainForm";
@@ -182,7 +169,6 @@ namespace SpeakUP
 
         private System.Windows.Forms.ListBox ChannelBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button ChangeButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label UserLabel;
         private System.Windows.Forms.Label label3;
