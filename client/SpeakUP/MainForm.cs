@@ -70,7 +70,8 @@ namespace SpeakUP
                 string[] result = answ.Split(new string[] { "$$" }, StringSplitOptions.None);
                 if(result[0] == "OK")
                 {
-                    UsersBox.Items.Add(UserLabel.Text);
+                    if(!UsersBox.Items.Contains(UserLabel.Text))
+                        UsersBox.Items.Add(UserLabel.Text);
                 }
             }
 
