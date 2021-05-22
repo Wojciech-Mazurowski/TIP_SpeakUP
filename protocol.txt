@@ -9,11 +9,18 @@ OK
 ERR$$(Username taken,Password too weak,Incorrect Username) - Error message
 
 
-CHP$$NICKNAME$$NEWPASSWORD  - zmiana has³a (juz zalogowany uzytkownik) - Error message
-OK
-ERR$$Password too weak
 
 EXT - Logout
+
+
+SHW - przekazuje uzytkownikow na danym serwerze
+OK$$lista uzytkownikow 
+
+
+
+JON$$nazwa_serwera - dolaczanie do serwera
+OK
+
 
 
 
