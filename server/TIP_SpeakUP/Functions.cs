@@ -8,8 +8,6 @@ namespace TIP_SpeakUP
         public static Dictionary<string, List<string>> Voicechats = new Dictionary<string, List<string>>();
         
 
-       
-
         /// <summary>
         ///  function realizing client requests
         /// </summary>
@@ -22,7 +20,7 @@ namespace TIP_SpeakUP
             string login;
             string pass;
             string new_pass;
-
+            string server_name;
 
             switch (Split_OP[0])
             {
@@ -47,7 +45,7 @@ namespace TIP_SpeakUP
                     }
                     break;
                 case "ADD":
-                    string server_name = Split_OP[1];
+                    server_name = Split_OP[1];
                     Voicechats.Add(server_name, new List<string>());
                     anwser = "OK";
                     foreach (var e in Voicechats)
@@ -64,6 +62,12 @@ namespace TIP_SpeakUP
                             e.Value.ForEach(x => anwser += "$$" + x);
                         }
                     }
+                    break;
+                case "JON":
+                    string server_name = Split_OP[1];
+
+                    anwser = "OK";
+                    
                     break;
                 default:
                     anwser = "OK";
