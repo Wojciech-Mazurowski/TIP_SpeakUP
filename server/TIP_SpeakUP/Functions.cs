@@ -4,7 +4,7 @@ namespace TIP_SpeakUP
 {
     class Functions
     {
-
+        
         public static Dictionary<string, List<string>> Voicechats = new Dictionary<string, List<string>>();
         
 
@@ -32,11 +32,6 @@ namespace TIP_SpeakUP
                     (login, pass) = (Split_OP[1], Split_OP[2]);
                     anwser = LoginService.Register(login,pass);
                     break;
-                case "CHP":
-                    (login, pass) = (Split_OP[1], Split_OP[2]);
-                    //todo zmiana hasła
-                    anwser = "OK";
-                    break;
                 case "REF":
                     anwser = "OK";
                     foreach (var e in Voicechats)
@@ -55,17 +50,17 @@ namespace TIP_SpeakUP
                     break;
                 case "SHW":
                     anwser = "OK";
-                    foreach (var e in Voicechats)
+                    foreach (var e in Voicechats[Split_OP[1]])
                     {
-                        if (e.Key == Split_OP[1])
-                        {
-                            e.Value.ForEach(x => anwser += "$$" + x);
-                        }
+                        anwser += "$$" + e;
                     }
                     break;
                 case "JON":
-                    string server_name = Split_OP[1];
-
+                    server_name = Split_OP[1];
+                    if(!Voicechats[server_name].Contains(Split_OP[2]))
+                    {
+                        Voicechats[server_name].Add(Split_OP[2]);
+                    }
                     anwser = "OK";
                     
                     break;
