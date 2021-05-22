@@ -66,7 +66,7 @@ namespace SpeakUP
         {
             if(ChannelBox.SelectedItem != null)
             {
-                string answ = Client.send("JON$$" + ChannelBox.SelectedItem.ToString());
+                string answ = Client.send("JON$$" + ChannelBox.SelectedItem.ToString() + "$$" + UserLabel.Text);
                 string[] result = answ.Split(new string[] { "$$" }, StringSplitOptions.None);
                 if(result[0] == "OK")
                 {
