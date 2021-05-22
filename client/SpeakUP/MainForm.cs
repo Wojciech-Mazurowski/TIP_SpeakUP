@@ -12,11 +12,12 @@ namespace SpeakUP
 {
     public partial class MainForm : Form
     {       
-        public MainForm(string[] Channels)
+        public MainForm(string[] Channels, string usrName)
         {
             InitializeComponent();
             ChannelBox.Items.Clear();
             ChannelBox.Items.AddRange(Channels);
+            UserLabel.Text = usrName;
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)
@@ -41,7 +42,7 @@ namespace SpeakUP
         private void AddButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ChannelForm chan = new ChannelForm(ChannelBox.Items.OfType<string>().ToArray());
+            ChannelForm chan = new ChannelForm(ChannelBox.Items.OfType<string>().ToArray(), UserLabel.Text);
             chan.FormClosed += (s, args) => this.Close();
             chan.Show();
         }
@@ -59,6 +60,20 @@ namespace SpeakUP
                     UsersBox.Items.AddRange(result);
                 }
             }
+        }
+
+        private void ChannelBox_DoubleClick(object sender, EventArgs e)
+        {
+            if(ChannelBox.SelectedItem != null)
+            {
+                string answ = Client.send("JON$$" + ChannelBox.SelectedItem.ToString());
+                string[] result = answ.Split(new string[] { "$$" }, StringSplitOptions.None);
+                if(result[0] == "OK")
+                {
+                    UsersBox.Items.Add(UserLabel.Text);
+                }
+            }
+
         }
     }
 }

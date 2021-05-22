@@ -13,10 +13,12 @@ namespace SpeakUP
     public partial class ChannelForm : Form
     {
         string[] Backup;
-        public ChannelForm(string[] channels)
+        string temp;
+        public ChannelForm(string[] channels, string usrName)
         {
             InitializeComponent();
             Backup = channels;
+            temp = usrName;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -27,7 +29,7 @@ namespace SpeakUP
             {
                 result = result.Skip(1).ToArray();
                 this.Hide();
-                MainForm Main = new MainForm(result);
+                MainForm Main = new MainForm(result, temp);
                 Main.FormClosed += (s, args) => this.Close();
                 Main.Show();
             }
@@ -37,7 +39,7 @@ namespace SpeakUP
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            MainForm Main = new MainForm(Backup);
+            MainForm Main = new MainForm(Backup, temp);
             Main.FormClosed += (s, args) => this.Close();
             Main.Show();
         }

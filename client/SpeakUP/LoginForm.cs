@@ -26,7 +26,7 @@ namespace SpeakUP
             {
                 result = result.Skip(1).ToArray();
                 this.Hide();
-                MainForm Main = new MainForm(result);
+                MainForm Main = new MainForm(result, LoginBox.Text);
                 Main.FormClosed += (s, args) => this.Close();
                 Main.Show();
             }
@@ -46,7 +46,7 @@ namespace SpeakUP
                 MessageBox.Show("Registration succesful!");
                 result = result.Skip(1).ToArray();
                 this.Hide();
-                MainForm Main = new MainForm(result);
+                MainForm Main = new MainForm(result, LoginBox.Text);
                 Main.FormClosed += (s, args) => this.Close();
                 Main.Show();
             }
