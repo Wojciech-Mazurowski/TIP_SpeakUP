@@ -53,6 +53,7 @@ namespace SpeakUP
             else {
                 Client.close();
                 MessageBox.Show(result[1]);
+
             }
         }
     }

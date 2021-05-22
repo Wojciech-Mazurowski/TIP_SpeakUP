@@ -19,6 +19,7 @@ namespace SpeakUP
             ChannelBox.Items.Clear();
             ChannelBox.Items.AddRange(Channels);
             UserLabel.Text = usrName;
+            DisconnectButton.Enabled = false;
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)
