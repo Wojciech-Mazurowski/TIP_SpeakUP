@@ -8,7 +8,8 @@ REG$$NICKNAME$$PASSWORD  - rejestracja
 OK
 ERR$$(Username taken,Password too weak,Incorrect Username) - Error message
 
-
+LVE$$login - wyjscie z servera 
+OK
 
 EXT - Logout
 

@@ -73,6 +73,18 @@ namespace TIP_SpeakUP
                     anwser = "OK";
                     
                     break;
+                case "DSC":
+                    login = Split_OP[1];
+                    foreach (var e in Voicechats.Values)
+                    {
+                        if (e.Contains(login))
+                        {
+                            e.Remove(login);
+                            break;
+                        }
+                    }
+                    anwser = "OK";
+                    break;
                 default:
                     anwser = "OK";
                     break;
