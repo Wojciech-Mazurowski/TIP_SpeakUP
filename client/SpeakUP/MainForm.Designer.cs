@@ -39,6 +39,7 @@ namespace SpeakUP
             this.RefButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.UsersBox = new System.Windows.Forms.ListBox();
+            this.DisconnectButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ChannelBox
@@ -143,12 +144,25 @@ namespace SpeakUP
             this.UsersBox.Size = new System.Drawing.Size(297, 340);
             this.UsersBox.TabIndex = 12;
             // 
+            // DisconnectButton
+            // 
+            this.DisconnectButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DisconnectButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DisconnectButton.Location = new System.Drawing.Point(527, 240);
+            this.DisconnectButton.Name = "DisconnectButton";
+            this.DisconnectButton.Size = new System.Drawing.Size(119, 55);
+            this.DisconnectButton.TabIndex = 13;
+            this.DisconnectButton.Text = "Disconnect";
+            this.DisconnectButton.UseVisualStyleBackColor = true;
+            this.DisconnectButton.Click += new System.EventHandler(this.DisconnectButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(664, 450);
+            this.Controls.Add(this.DisconnectButton);
             this.Controls.Add(this.UsersBox);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.RefButton);
@@ -176,5 +190,6 @@ namespace SpeakUP
         private System.Windows.Forms.Button RefButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.ListBox UsersBox;
+        private System.Windows.Forms.Button DisconnectButton;
     }
 }
