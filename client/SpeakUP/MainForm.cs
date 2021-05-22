@@ -11,7 +11,8 @@ using System.Windows.Forms;
 namespace SpeakUP
 {
     public partial class MainForm : Form
-    {       
+    {
+        public string OnServer= String.Empty;
         public MainForm(string[] Channels, string usrName)
         {
             InitializeComponent();
@@ -70,11 +71,28 @@ namespace SpeakUP
                 string[] result = answ.Split(new string[] { "$$" }, StringSplitOptions.None);
                 if(result[0] == "OK")
                 {
+                    DisconnectButton.Enabled = true;
+                    OnServer = ChannelBox.SelectedItem.ToString();
                     if(!UsersBox.Items.Contains(UserLabel.Text))
                         UsersBox.Items.Add(UserLabel.Text);
                 }
             }
 
+        }
+
+        private void DisconnectButton_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(OnServer))
+            {
+                string answ = Client.send("DSC$$" + ChannelBox.SelectedItem.ToString() + "$$" + UserLabel.Text);
+                string[] result = answ.Split(new string[] { "$$" }, StringSplitOptions.None);
+                if (result[0] == "OK")
+                {
+                    OnServer = String.Empty;
+                    UsersBox.Items.RemoveAt(UsersBox.Items.IndexOf(UserLabel.Text));
+                    DisconnectButton.Enabled = false;
+                }
+            }
         }
     }
 }
