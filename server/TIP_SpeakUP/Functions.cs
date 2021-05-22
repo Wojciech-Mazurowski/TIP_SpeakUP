@@ -57,9 +57,18 @@ namespace TIP_SpeakUP
                     break;
                 case "JON":
                     server_name = Split_OP[1];
-                    if(!Voicechats[server_name].Contains(Split_OP[2]))
+                    login = Split_OP[2];
+                    if(!Voicechats[server_name].Contains(login))
                     {
-                        Voicechats[server_name].Add(Split_OP[2]);
+                        foreach (var e in Voicechats.Values)
+                        {
+                            if(e.Contains(login))
+                            {
+                                e.Remove(login);
+                                break;
+                            }
+                        }
+                        Voicechats[server_name].Add(login);
                     }
                     anwser = "OK";
                     
