@@ -74,11 +74,13 @@ namespace TIP_SpeakUP
                     
                     break;
                 case "DSC":
-                    login = Split_OP[1];
+                    login = Split_OP[2];
+                    System.Console.WriteLine(login);
                     foreach (var e in Voicechats.Values)
                     {
                         if (e.Contains(login))
                         {
+                            System.Console.WriteLine(e);
                             e.Remove(login);
                             break;
                         }
