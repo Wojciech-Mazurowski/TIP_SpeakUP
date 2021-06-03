@@ -53,7 +53,7 @@ namespace TIP_SpeakUP
                 {
                     Console.WriteLine("Uzytkownik: {0}, jego IP: = {1}", kvp.Key, kvp.Value.Client.RemoteEndPoint);
                 }
-                return "OK";
+                return "REG";
             }
 
         }
@@ -68,7 +68,7 @@ namespace TIP_SpeakUP
             {
                 if (Check_user(username, password))
                 {
-                    string anwser = "OK";
+                    string anwser = "LOG";
                     foreach (var e in Functions.Voicechats)
                     {
                         anwser += "$$" + e.Key;

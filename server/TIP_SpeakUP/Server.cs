@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
-using System.Threading;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -56,40 +54,48 @@ namespace TIP_SpeakUP
             StreamReader sReader = new StreamReader(client.GetStream(), Encoding.ASCII);
             Boolean bClientConnected = true;
             String Data = null;
+            Functions.Disconnect += (sender, e) => bClientConnected = false;
 
 
             string _ipaddr = client.Client.RemoteEndPoint.ToString();
 
             while (bClientConnected)
             {
-
-                Data = sReader.ReadLine();
-          
-                if (Data == "EXT")//todo usunąć to gówno i wkleic to w Functions zeby latwiej usuwać z ActiveUsers
+                try
                 {
-                    sWriter.WriteLine("EXT");
-                    sWriter.Flush();
+                    Data = sReader.ReadLine();
+                    Console.WriteLine(Data);
+
+                     if (Data.Split("$$")[0] == "REG" || Data.Split("$$")[0] == "LOG")
+                    {
+                        string ans = Functions.DecodeOperation(Data, client);
+                        Console.WriteLine(ans);
+                        sWriter.WriteLine(ans);
+                        sWriter.Flush();
+
+                    }
+                    else
+                    {   
+                        string ans = Functions.DecodeOperation(Data);
+                        Console.WriteLine(ans);
+                        sWriter.WriteLine(ans);
+                        sWriter.Flush();
+
+                    }
+                }
+                catch (Exception e)
+                {
                     bClientConnected = false;
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(client.Client.RemoteEndPoint + ": " + "disconnected");
-                    Console.ResetColor();
-                }
-                else if(Data.Split("$$")[0]=="REG"|| Data.Split("$$")[0] == "LOG")
-                {
-                    string ans = Functions.DecodeOperation(Data, client);
-                    sWriter.WriteLine(ans);
-                    sWriter.Flush();
-
-                }
-                else
-                {
-                    string ans = Functions.DecodeOperation(Data);
-                    sWriter.WriteLine(ans);
-                    sWriter.Flush();
-
+                    Console.WriteLine("OHO ERROR rozłaczam sie XD: " + e.Message);
                 }
 
             }
+            client.Close();
+        }
+
+        private void Functions_Disconnect(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

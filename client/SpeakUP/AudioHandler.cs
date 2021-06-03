@@ -33,7 +33,7 @@ namespace SpeakUP
             {
                 var tempData = data.Take(350).ToArray();
                 data = data.Skip(350).ToArray();
-                await udpClient.SendAsync(tempBuffer, tempBuffer.Length);
+              //  await udpClient.SendAsync(tempBuffer, tempBuffer.Length);
             }
         }
         private async void PlaySound()
@@ -63,7 +63,7 @@ namespace SpeakUP
         {
            WaveInEvent waveSource = new WaveInEvent();
             waveSource.WaveFormat = new WaveFormat();
-            waveSource.DataAvailable += Recorder_DataAvailable;
+          //  waveSource.DataAvailable += Recorder_DataAvailable;
             waveSource.StartRecording();
         }
     }
