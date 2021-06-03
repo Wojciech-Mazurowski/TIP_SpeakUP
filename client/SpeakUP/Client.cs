@@ -65,8 +65,12 @@ namespace SpeakUP
         {
             if (_isConnected)
             {
-                streamDataIncomming = _streamReader.ReadLine();
-                return streamDataIncomming;
+                try
+                {
+                    streamDataIncomming = _streamReader.ReadLine();
+                    return streamDataIncomming;
+                }
+                catch { }
             }
             return "false";
         }
@@ -74,6 +78,7 @@ namespace SpeakUP
         public static void close()
         {
             send("EXT");
+            listen();
             _streamReader.Close();
             _streamWriter.Close();
             _TCPclient.Client.Close();

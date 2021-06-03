@@ -22,13 +22,7 @@ namespace SpeakUP
         private void button1_Click(object sender, EventArgs e)
         {
             Client.send("ADD$$" + NameBox.Text);
-            string answ = Client.listen();
-            string[] result = answ.Split(new string[] { "$$" }, StringSplitOptions.None);
-            if(result[0] == "OK")
-            {
-                result = result.Skip(1).ToArray();
-                this.Close();
-            }
+            this.Close();
 
         }
 

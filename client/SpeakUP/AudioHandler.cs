@@ -27,9 +27,14 @@ namespace SpeakUP
             }
         }
 
-        public async void SendSound()
+        public async void SendSound(byte[] data)
         {
-
+            while (data.Length != 0)
+            {
+                var tempData = data.Take(350).ToArray();
+                data = data.Skip(350).ToArray();
+                await udpClient.SendAsync(tempBuffer, tempBuffer.Length);
+            }
         }
         private async void PlaySound()
         {
@@ -56,7 +61,10 @@ namespace SpeakUP
 
         private void RecordSound()
         {
-
+           WaveInEvent waveSource = new WaveInEvent();
+            waveSource.WaveFormat = new WaveFormat();
+            waveSource.DataAvailable += Recorder_DataAvailable;
+            waveSource.StartRecording();
         }
     }
 }
