@@ -14,6 +14,7 @@ namespace SpeakUP
     public partial class MainForm : Form
     {
         private AudioHandler Audio = new AudioHandler();
+        private bool working = true;
         public string OnServer= String.Empty;
         List<string> OnCall = new List<string>();
         public MainForm(string[] Channels, string usrName)
@@ -28,6 +29,7 @@ namespace SpeakUP
 
         private void LogOutButton_Click(object sender, EventArgs e)
         {
+            working = false;
             Client.close();
             this.Close();
         }
@@ -72,7 +74,7 @@ namespace SpeakUP
 
         private async void TraffickHandler()
         {
-            while (true)
+            while (working)
             {
                 string answ = Client.listen();
                 string[] result = answ.Split(new string[] { "$$" }, StringSplitOptions.None);
