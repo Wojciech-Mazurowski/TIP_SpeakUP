@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net.Sockets;
 
 namespace TIP_SpeakUP
 {
@@ -7,15 +8,17 @@ namespace TIP_SpeakUP
         
         public static Dictionary<string, List<string>> Voicechats = new Dictionary<string, List<string>>();
 
+        public static void SendMessages()
+        {
 
-        public static string _ipaddr = "";
+        }
 
         /// <summary>
         ///  function realizing client requests
         /// </summary>
         /// <param name="OP">Operation requested by client</param>
         /// <returns></returns>
-        public static string DecodeOperation(string OP)
+        public static string DecodeOperation(string OP,TcpClient client = null)
         {
             string anwser="";
             string[] Split_OP = OP.Split("$$");
@@ -27,14 +30,14 @@ namespace TIP_SpeakUP
             {
                 case "LOG":
                     (login, pass) = (Split_OP[1], Split_OP[2]);
-                    anwser = LoginService.Login(login, pass, _ipaddr);
+                    anwser = LoginService.Login(login, pass, client);
                     break;
                 case "REG":
                     (login, pass) = (Split_OP[1], Split_OP[2]);
-                    anwser = LoginService.Register(login,pass, _ipaddr);
+                    anwser = LoginService.Register(login,pass, client);
                     break;
                 case "REF":
-                    anwser = "OK";
+                    anwser = "REF";
                     foreach (var e in Voicechats)
                     {
                         anwser += "$$" + e.Key;
@@ -43,14 +46,14 @@ namespace TIP_SpeakUP
                 case "ADD":
                     server_name = Split_OP[1];
                     Voicechats.Add(server_name, new List<string>());
-                    anwser = "OK";
+                    anwser = "ADD";
                     foreach (var e in Voicechats)
                     {
                         anwser +="$$"+e.Key;
                     }
                     break;
                 case "SHW":
-                    anwser = "OK";
+                    anwser = "SHW";
                     foreach (var e in Voicechats[Split_OP[1]])
                     {
                         anwser += "$$" + e;
@@ -71,7 +74,7 @@ namespace TIP_SpeakUP
                         }
                         Voicechats[server_name].Add(login);
                     }
-                    anwser = "OK";
+                    anwser = "JON";
                     
                     break;
                 case "DSC":
@@ -86,7 +89,7 @@ namespace TIP_SpeakUP
                             break;
                         }
                     }
-                    anwser = "OK";
+                    anwser = "DSC";
                     break;
                 default:
                     anwser = "OK";

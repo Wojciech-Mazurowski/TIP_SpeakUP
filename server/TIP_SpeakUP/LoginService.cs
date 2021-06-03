@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Net.Sockets;
 
 namespace TIP_SpeakUP
 {
     class LoginService
     {
         public static DataBase_Operations db = new DataBase_Operations("URI=FILE:Users.db");
-        public static Dictionary<string,string> ActiveUsers = new Dictionary<string, string>();
+        public static Dictionary<string,TcpClient> ActiveUsers = new Dictionary<string, TcpClient>();
 
 
         private static bool Check_avability(string username)
@@ -39,7 +39,7 @@ namespace TIP_SpeakUP
         }
 
 
-        public static string Register(string username, string password,string ipaddr)
+        public static string Register(string username, string password,TcpClient client)
         {
             if (Check_avability(username) == false)
             {
@@ -48,13 +48,17 @@ namespace TIP_SpeakUP
             else
             {
                 db.add_account(username, password);
-                ActiveUsers.Add(username, ipaddr);
+                ActiveUsers.Add(username, client);
+                foreach (KeyValuePair<string, TcpClient> kvp in LoginService.ActiveUsers)
+                {
+                    Console.WriteLine("Uzytkownik: {0}, jego IP: = {1}", kvp.Key, kvp.Value.Client.RemoteEndPoint);
+                }
                 return "OK";
             }
 
         }
 
-        public static string Login(string username, string password,string ipaddr)
+        public static string Login(string username, string password,TcpClient client)
         {
             if (Check_avability(username) == true)
             {
@@ -70,7 +74,11 @@ namespace TIP_SpeakUP
                         anwser += "$$" + e.Key;
                     }
 
-                    ActiveUsers.Add(username, ipaddr);
+                    ActiveUsers.Add(username,client);
+                    foreach (KeyValuePair<string, TcpClient> kvp in LoginService.ActiveUsers)
+                    {
+                        Console.WriteLine("Uzytkownik: {0}, jego IP: = {1}", kvp.Key, kvp.Value.Client.RemoteEndPoint);
+                    }
                     return anwser;
                 }
                 else

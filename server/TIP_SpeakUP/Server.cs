@@ -13,8 +13,8 @@ namespace TIP_SpeakUP
     {
         private TcpListener _server;
         private bool _isRunning;
-        private IPAddress ip = IPAddress.Parse("127.0.0.1");
-        private int port = 6969;
+        private static IPAddress ip = IPAddress.Parse("127.0.0.1");
+        private static int port = 6969;
 
 
         public Server()
@@ -25,6 +25,7 @@ namespace TIP_SpeakUP
             _isRunning = true;
             Console.WriteLine("server ip: " + ip);
             Console.WriteLine("__________________________________________________________\n");
+
             ServerLoop();
         }
 
@@ -36,7 +37,8 @@ namespace TIP_SpeakUP
                 // wait for client connection
                 TcpClient newClient = _server.AcceptTcpClient();
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(newClient.Client.RemoteEndPoint + ": " + "connected");
+
+                Console.WriteLine("Connected :" + newClient.Client.RemoteEndPoint);
                 Console.ResetColor();
 
                 Task.Run(() => HandleClient(newClient));
@@ -54,7 +56,9 @@ namespace TIP_SpeakUP
             StreamReader sReader = new StreamReader(client.GetStream(), Encoding.ASCII);
             Boolean bClientConnected = true;
             String Data = null;
-            Functions._ipaddr = client.Client.RemoteEndPoint.ToString();
+
+
+            string _ipaddr = client.Client.RemoteEndPoint.ToString();
 
             while (bClientConnected)
             {
@@ -69,6 +73,13 @@ namespace TIP_SpeakUP
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(client.Client.RemoteEndPoint + ": " + "disconnected");
                     Console.ResetColor();
+                }
+                else if(Data.Split("$$")[0]=="REG"|| Data.Split("$$")[0] == "LOG")
+                {
+                    string ans = Functions.DecodeOperation(Data, client);
+                    sWriter.WriteLine(ans);
+                    sWriter.Flush();
+
                 }
                 else
                 {
