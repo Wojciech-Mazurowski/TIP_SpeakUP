@@ -13,6 +13,7 @@ namespace SpeakUP
 {
     public partial class MainForm : Form
     {
+        private AudioHandler Audio = new AudioHandler();
         public string OnServer= String.Empty;
         List<string> OnCall = new List<string>();
         public MainForm(string[] Channels, string usrName)
@@ -69,7 +70,7 @@ namespace SpeakUP
             }
         }
 
-        private void TraffickHandler()
+        private async void TraffickHandler()
         {
             while (true)
             {
@@ -80,37 +81,57 @@ namespace SpeakUP
                 {
                     case "DSC":
                         OnServer = String.Empty;
-                        UsersBox.Items.RemoveAt(UsersBox.Items.IndexOf(UserLabel.Text));
-                        DisconnectButton.Enabled = false;
+                        Audio.isConnected = false;
+                        Invoke((MethodInvoker)delegate
+                        {
+                            UsersBox.Items.RemoveAt(UsersBox.Items.IndexOf(UserLabel.Text));
+                            DisconnectButton.Enabled = false;
+                        });
                         break;
                     case "JON":
-                        DisconnectButton.Enabled = true;
-                        result = result.Skip(1).ToArray();
-                        OnCall.AddRange(result);
-                        OnServer = ChannelBox.SelectedItem.ToString();
-                        if (!UsersBox.Items.Contains(UserLabel.Text))
-                            UsersBox.Items.Add(UserLabel.Text);
+                        Invoke((MethodInvoker)delegate
+                        {
+                            DisconnectButton.Enabled = true;
+                            result = result.Skip(1).ToArray();
+                            OnCall.AddRange(result);
+                            OnServer = ChannelBox.SelectedItem.ToString();
+                            if (!UsersBox.Items.Contains(UserLabel.Text))
+                                UsersBox.Items.Add(UserLabel.Text);
+                        });
                         break;
                     case "SHW":
                         result = result.Skip(1).ToArray();
-                        UsersBox.Items.Clear();
-                        UsersBox.Items.AddRange(result);
+                        Invoke((MethodInvoker)delegate
+                        {
+                            UsersBox.Items.Clear();
+                            UsersBox.Items.AddRange(result);
+                        });
                         break;
                     case "REF":
                         result = result.Skip(1).ToArray();
-                        ChannelBox.Items.Clear();
-                        ChannelBox.Items.AddRange(result);
+                        Invoke((MethodInvoker)delegate
+                        {
+                            ChannelBox.Items.Clear();
+                            ChannelBox.Items.AddRange(result);
+                        });
+                       
                         break;
                     case "ADD":
                         result = result.Skip(1).ToArray();
-                        ChannelBox.Items.Clear();
-                        ChannelBox.Items.AddRange(result);
+                        Invoke(new Action(() =>
+                        {
+                            ChannelBox.Items.Clear();
+                            ChannelBox.Items.AddRange(result);
+                        }));
                         break;
                     case "CAL":
                         OnCall.Add(result[1]);
                         break;
                     case "ERR":
-                        MessageBox.Show(result[1]);
+                        Invoke((MethodInvoker)delegate
+                        {
+                            MessageBox.Show(result[1]);
+                        });
                         break;
 
                 }
