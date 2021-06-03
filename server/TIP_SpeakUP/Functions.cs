@@ -6,7 +6,9 @@ namespace TIP_SpeakUP
     {
         
         public static Dictionary<string, List<string>> Voicechats = new Dictionary<string, List<string>>();
-        
+
+
+        public static string _ipaddr = "";
 
         /// <summary>
         ///  function realizing client requests
@@ -19,18 +21,17 @@ namespace TIP_SpeakUP
             string[] Split_OP = OP.Split("$$");
             string login;
             string pass;
-            string new_pass;
             string server_name;
 
             switch (Split_OP[0])
             {
                 case "LOG":
                     (login, pass) = (Split_OP[1], Split_OP[2]);
-                    anwser = LoginService.Login(login, pass);
+                    anwser = LoginService.Login(login, pass, _ipaddr);
                     break;
                 case "REG":
                     (login, pass) = (Split_OP[1], Split_OP[2]);
-                    anwser = LoginService.Register(login,pass);
+                    anwser = LoginService.Register(login,pass, _ipaddr);
                     break;
                 case "REF":
                     anwser = "OK";

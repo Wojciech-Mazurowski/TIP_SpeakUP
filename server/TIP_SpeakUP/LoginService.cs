@@ -7,7 +7,7 @@ namespace TIP_SpeakUP
     class LoginService
     {
         public static DataBase_Operations db = new DataBase_Operations("URI=FILE:Users.db");
-        public static List<string> ActiveUsers = new List<string>();
+        public static Dictionary<string,string> ActiveUsers = new Dictionary<string, string>();
 
 
         private static bool Check_avability(string username)
@@ -39,7 +39,7 @@ namespace TIP_SpeakUP
         }
 
 
-        public static string Register(string username, string password)
+        public static string Register(string username, string password,string ipaddr)
         {
             if (Check_avability(username) == false)
             {
@@ -48,12 +48,13 @@ namespace TIP_SpeakUP
             else
             {
                 db.add_account(username, password);
+                ActiveUsers.Add(username, ipaddr);
                 return "OK";
             }
 
         }
 
-        public static string Login(string username, string password)
+        public static string Login(string username, string password,string ipaddr)
         {
             if (Check_avability(username) == true)
             {
@@ -69,7 +70,7 @@ namespace TIP_SpeakUP
                         anwser += "$$" + e.Key;
                     }
 
-                    ActiveUsers.Add(username);
+                    ActiveUsers.Add(username, ipaddr);
                     return anwser;
                 }
                 else

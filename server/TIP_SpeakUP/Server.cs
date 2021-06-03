@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.IO;
-
+using System.Threading.Tasks;
 
 namespace TIP_SpeakUP
 {
@@ -38,10 +38,9 @@ namespace TIP_SpeakUP
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(newClient.Client.RemoteEndPoint + ": " + "connected");
                 Console.ResetColor();
-                // client found.
-                // create a thread to handle communication
-                Thread t = new Thread(new ParameterizedThreadStart(HandleClient));
-                t.Start(newClient);
+
+                Task.Run(() => HandleClient(newClient));
+
             }
         }
 
@@ -55,6 +54,7 @@ namespace TIP_SpeakUP
             StreamReader sReader = new StreamReader(client.GetStream(), Encoding.ASCII);
             Boolean bClientConnected = true;
             String Data = null;
+            Functions._ipaddr = client.Client.RemoteEndPoint.ToString();
 
             while (bClientConnected)
             {
