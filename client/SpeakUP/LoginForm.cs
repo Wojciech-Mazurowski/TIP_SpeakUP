@@ -19,15 +19,16 @@ namespace SpeakUP
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            Client.runclient();
-            string answ = Client.send("LOG$$"+ LoginBox.Text + "$$" + PasswordBox.Text);
+            Client.runTCPclient();
+            Client.send("LOG$$"+ LoginBox.Text + "$$" + PasswordBox.Text);
+            string answ = Client.listen();
             string[] result = answ.Split(new string[] {"$$"},StringSplitOptions.None);
-            if (result[0] == "OK")
+            if (result[0] == "LOG")
             {
                 result = result.Skip(1).ToArray();
                 this.Hide();
                 MainForm Main = new MainForm(result, LoginBox.Text);
-                Main.FormClosed += (s, args) => this.Close();
+                Main.FormClosed += (s, args) => this.Show();
                 Main.Show();
             }
             else {
@@ -38,16 +39,17 @@ namespace SpeakUP
 
         private void RegButton_Click(object sender, EventArgs e)
         {
-            Client.runclient();
-            string answ = Client.send("REG$$" + LoginBox.Text + "$$" + PasswordBox.Text);
+            Client.runTCPclient();
+            Client.send("REG$$" + LoginBox.Text + "$$" + PasswordBox.Text);
+            string answ = Client.listen();
             string[] result = answ.Split(new string[] { "$$" }, StringSplitOptions.None);
-            if (result[0] == "OK")
+            if (result[0] == "REG")
             {
                 MessageBox.Show("Registration succesful!");
                 result = result.Skip(1).ToArray();
                 this.Hide();
                 MainForm Main = new MainForm(result, LoginBox.Text);
-                Main.FormClosed += (s, args) => this.Close();
+                Main.FormClosed += (s, args) => this.Show();
                 Main.Show();
             }
             else {

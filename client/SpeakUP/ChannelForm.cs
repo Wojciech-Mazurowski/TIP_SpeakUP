@@ -14,34 +14,27 @@ namespace SpeakUP
     {
         string[] Backup;
         string temp;
-        public ChannelForm(string[] channels, string usrName)
+        public ChannelForm()
         {
             InitializeComponent();
-            Backup = channels;
-            temp = usrName;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string answ = Client.send("ADD$$" + NameBox.Text);
+            Client.send("ADD$$" + NameBox.Text);
+            string answ = Client.listen();
             string[] result = answ.Split(new string[] { "$$" }, StringSplitOptions.None);
             if(result[0] == "OK")
             {
                 result = result.Skip(1).ToArray();
-                this.Hide();
-                MainForm Main = new MainForm(result, temp);
-                Main.FormClosed += (s, args) => this.Close();
-                Main.Show();
+                this.Close();
             }
 
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MainForm Main = new MainForm(Backup, temp);
-            Main.FormClosed += (s, args) => this.Close();
-            Main.Show();
+            this.Close();
         }
     }
 }

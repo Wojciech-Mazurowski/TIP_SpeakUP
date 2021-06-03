@@ -9,7 +9,7 @@ namespace SpeakUP
 {
     class Client
     {
-        private static TcpClient _client;
+        private static TcpClient _TCPclient;
         private static StreamReader _streamReader;
         private static StreamWriter _streamWriter;
         private static bool _isConnected;
@@ -19,13 +19,13 @@ namespace SpeakUP
         public static String streamDataIncomming;
 
         public Client() { }
-        public static bool runclient()
+        public static bool runTCPclient()
         {
             try
-            {
+            { 
                 IPAddress ip = IPAddress.Parse(server_ip);
-                _client = new TcpClient();
-                _client.Connect(ip, port);
+                _TCPclient = new TcpClient();
+                _TCPclient.Connect(ip, port);
                 HandleCommunication();
                 return true;
             }
@@ -35,6 +35,7 @@ namespace SpeakUP
             }
         }
 
+
         public static void HandleCommunication()
         {
           
@@ -43,10 +44,10 @@ namespace SpeakUP
 
         }
 
-        public static string send(string text)
+        public static void send(string text)
         {
-            _streamReader = new StreamReader(_client.GetStream(), Encoding.ASCII);
-            _streamWriter = new StreamWriter(_client.GetStream(), Encoding.ASCII);
+            _streamReader = new StreamReader(_TCPclient.GetStream(), Encoding.ASCII);
+            _streamWriter = new StreamWriter(_TCPclient.GetStream(), Encoding.ASCII);
 
             if (_isConnected)
             {
@@ -55,11 +56,18 @@ namespace SpeakUP
                 // only be sent once the buffer is filled.
                 _streamWriter.WriteLine(text);
                 _streamWriter.Flush();
+            }
 
+        }
+
+
+        public static string listen()
+        {
+            if (_isConnected)
+            {
                 streamDataIncomming = _streamReader.ReadLine();
                 return streamDataIncomming;
             }
-
             return "false";
         }
 
@@ -68,8 +76,8 @@ namespace SpeakUP
             send("EXT");
             _streamReader.Close();
             _streamWriter.Close();
-            _client.Client.Close();
-            _client.Close();
+            _TCPclient.Client.Close();
+            _TCPclient.Close();
         }
     }
 }
