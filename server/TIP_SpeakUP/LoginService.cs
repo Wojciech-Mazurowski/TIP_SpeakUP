@@ -51,7 +51,7 @@ namespace TIP_SpeakUP
                 ActiveUsers.Add(username, client);
                 foreach (KeyValuePair<string, TcpClient> kvp in LoginService.ActiveUsers)
                 {
-                    Console.WriteLine("Uzytkownik: {0}, jego IP: = {1}", kvp.Key, kvp.Value.Client.RemoteEndPoint);
+                   
                 }
                 return "REG";
             }
@@ -77,7 +77,7 @@ namespace TIP_SpeakUP
                     ActiveUsers.Add(username,client);
                     foreach (KeyValuePair<string, TcpClient> kvp in LoginService.ActiveUsers)
                     {
-                        Console.WriteLine("Uzytkownik: {0}, jego IP: = {1}", kvp.Key, kvp.Value.Client.RemoteEndPoint);
+                     
                     }
                     return anwser;
                 }

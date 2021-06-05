@@ -13,8 +13,12 @@ namespace SpeakUP
 {
     public partial class MainForm : Form
     {
+<<<<<<< Updated upstream
         private AudioHandler Audio = new AudioHandler();
         private bool working = true;
+=======
+       // private AudioHandler Audio = new AudioHandler();
+>>>>>>> Stashed changes
         public string OnServer= String.Empty;
         List<string> OnCall = new List<string>();
         public MainForm(string[] Channels, string usrName)
@@ -83,7 +87,7 @@ namespace SpeakUP
                 {
                     case "DSC":
                         OnServer = String.Empty;
-                        Audio.isConnected = false;
+                      //  Audio.isConnected = false;
                         Invoke((MethodInvoker)delegate
                         {
                             UsersBox.Items.RemoveAt(UsersBox.Items.IndexOf(UserLabel.Text));

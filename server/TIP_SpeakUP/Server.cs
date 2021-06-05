@@ -35,8 +35,8 @@ namespace TIP_SpeakUP
                 // wait for client connection
                 TcpClient newClient = _server.AcceptTcpClient();
                 Console.ForegroundColor = ConsoleColor.Green;
-
-                Console.WriteLine("Connected :" + newClient.Client.RemoteEndPoint);
+                 
+                Console.WriteLine("User: " + newClient.Client.RemoteEndPoint + " connected");
                 Console.ResetColor();
 
                 Task.Run(() => HandleClient(newClient));
@@ -64,12 +64,11 @@ namespace TIP_SpeakUP
                 try
                 {
                     Data = sReader.ReadLine();
-                    Console.WriteLine(Data);
-
+              
                      if (Data.Split("$$")[0] == "REG" || Data.Split("$$")[0] == "LOG")
                     {
                         string ans = Functions.DecodeOperation(Data, client);
-                        Console.WriteLine(ans);
+                      
                         sWriter.WriteLine(ans);
                         sWriter.Flush();
 
@@ -77,7 +76,7 @@ namespace TIP_SpeakUP
                     else
                     {   
                         string ans = Functions.DecodeOperation(Data);
-                        Console.WriteLine(ans);
+                      
                         sWriter.WriteLine(ans);
                         sWriter.Flush();
 
