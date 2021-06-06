@@ -22,18 +22,22 @@ namespace SpeakUP
             Client.runTCPclient();
             Client.send("LOG$$"+ LoginBox.Text + "$$" + PasswordBox.Text);
             string answ = Client.listen();
-            string[] result = answ.Split(new string[] {"$$"},StringSplitOptions.None);
-            if (result[0] == "LOG")
+            if (!String.IsNullOrEmpty(answ))
             {
-                result = result.Skip(1).ToArray();
-                this.Hide();
-                MainForm Main = new MainForm(result, LoginBox.Text);
-                Main.FormClosed += (s, args) => this.Show();
-                Main.Show();
-            }
-            else {
-                Client.close();
-                MessageBox.Show(result[1]); 
+                string[] result = answ.Split(new string[] { "$$" }, StringSplitOptions.None);
+                if (result[0] == "LOG")
+                {
+                    result = result.Skip(1).ToArray();
+                    this.Hide();
+                    MainForm Main = new MainForm(result, LoginBox.Text);
+                    Main.FormClosed += (s, args) => this.Show();
+                    Main.Show();
+                }
+                else
+                {
+                    Client.close();
+                    MessageBox.Show(result[1]);
+                }
             }
         }
 
@@ -42,20 +46,24 @@ namespace SpeakUP
             Client.runTCPclient();
             Client.send("REG$$" + LoginBox.Text + "$$" + PasswordBox.Text);
             string answ = Client.listen();
-            string[] result = answ.Split(new string[] { "$$" }, StringSplitOptions.None);
-            if (result[0] == "REG")
+            if (!String.IsNullOrEmpty(answ))
             {
-                MessageBox.Show("Registration succesful!");
-                result = result.Skip(1).ToArray();
-                this.Hide();
-                MainForm Main = new MainForm(result, LoginBox.Text);
-                Main.FormClosed += (s, args) => this.Show();
-                Main.Show();
-            }
-            else {
-                Client.close();
-                MessageBox.Show(result[1]);
+                string[] result = answ.Split(new string[] { "$$" }, StringSplitOptions.None);
+                if (result[0] == "REG")
+                {
+                    MessageBox.Show("Registration succesful!");
+                    result = result.Skip(1).ToArray();
+                    this.Hide();
+                    MainForm Main = new MainForm(result, LoginBox.Text);
+                    Main.FormClosed += (s, args) => this.Show();
+                    Main.Show();
+                }
+                else
+                {
+                    Client.close();
+                    MessageBox.Show(result[1]);
 
+                }
             }
         }
     }
