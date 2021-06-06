@@ -17,7 +17,8 @@ namespace TIP_SpeakUP
         /// </summary>
         /// <param name="OP">Operation requested by client</param>
         /// <returns></returns>
-        public static string DecodeOperation(string OP, TcpClient client = null) {
+        public static string DecodeOperation(string OP, TcpClient client = null)
+        {
             string anwser = "";
             string[] Split_OP = OP.Split("$$");
             string login;
@@ -75,6 +76,7 @@ namespace TIP_SpeakUP
 
                         anwser = "JON" + Get_IP_addresses(server_name, login);
                         Send_IP_address_to_others(client, server_name, login);
+                        Send_active_users_to_others(server_name);
                     }
                     else
                     {
@@ -112,16 +114,18 @@ namespace TIP_SpeakUP
         }
 
 
-        public static string Get_IP_addresses(string servername,string login){
+        public static string Get_IP_addresses(string servername, string login)
+        {
 
-            string ans= "";
-            
+            string ans = "";
 
-            foreach(string user in Voicechats[servername]) {
+
+            foreach (string user in Voicechats[servername])
+            {
                 if (user != login)
                 {
                     Console.WriteLine("user: " + user + "jego IP: " + LoginService.ActiveUsers[user].Client.RemoteEndPoint.ToString().Split(':')[0]);
-                    ans += "$$"+LoginService.ActiveUsers[user].Client.RemoteEndPoint.ToString().Split(':')[0];
+                    ans += "$$" + LoginService.ActiveUsers[user].Client.RemoteEndPoint.ToString().Split(':')[0];
                 }
             }
             return ans;
@@ -134,16 +138,18 @@ namespace TIP_SpeakUP
         {
             string ans = "CAL$$";
 
-             foreach(string user in Voicechats[servername]){
-                    if (user != login){
+            foreach (string user in Voicechats[servername])
+            {
+                if (user != login)
+                {
 
                     StreamWriter sWriter2 = new StreamWriter(LoginService.ActiveUsers[user].GetStream(), Encoding.ASCII);
-                    Console.WriteLine("wyslalem " + ans +client.Client.RemoteEndPoint.ToString().Split(':')[0]+ " do " + LoginService.ActiveUsers[user].Client.RemoteEndPoint.ToString());
+                    Console.WriteLine("wyslalem " + ans + client.Client.RemoteEndPoint.ToString().Split(':')[0] + " do " + LoginService.ActiveUsers[user].Client.RemoteEndPoint.ToString());
                     sWriter2.WriteLine(ans + client.Client.RemoteEndPoint.ToString().Split(':')[0]);
                     sWriter2.Flush();
 
-                    }
-             }
+                }
+            }
         }
 
         public static void Send_server_names_to_others()
@@ -156,11 +162,33 @@ namespace TIP_SpeakUP
 
             foreach (string user in LoginService.ActiveUsers.Keys)
             {
+                StreamWriter sWriter2 = new StreamWriter(LoginService.ActiveUsers[user].GetStream(), Encoding.ASCII);
+                Console.WriteLine("wyslalem: " + ans);
+                sWriter2.WriteLine(ans);
+                sWriter2.Flush();
+            }
+        }
+
+
+        public static void Send_active_users_to_others(string servername)
+        {
+            string ans = "SHW";
+            foreach (var e in Voicechats[servername])
+            {
+                ans += "$$" + e;
+            }
+
+            foreach (string user in Voicechats[servername])
+            {
+                {
                     StreamWriter sWriter2 = new StreamWriter(LoginService.ActiveUsers[user].GetStream(), Encoding.ASCII);
                     Console.WriteLine("wyslalem: " + ans);
                     sWriter2.WriteLine(ans);
                     sWriter2.Flush();
+                }
             }
+
+
         }
     }
 }
