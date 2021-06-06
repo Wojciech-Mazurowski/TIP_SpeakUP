@@ -31,7 +31,7 @@ namespace SpeakUP
         {
             this.NameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ConfirmButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -53,17 +53,17 @@ namespace SpeakUP
             this.label1.TabIndex = 1;
             this.label1.Text = "Channel name:";
             // 
-            // button1
+            // ConfirmButton
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(172, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 38);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Confirm";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ConfirmButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ConfirmButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ConfirmButton.Location = new System.Drawing.Point(172, 135);
+            this.ConfirmButton.Name = "ConfirmButton";
+            this.ConfirmButton.Size = new System.Drawing.Size(90, 38);
+            this.ConfirmButton.TabIndex = 2;
+            this.ConfirmButton.Text = "Confirm";
+            this.ConfirmButton.UseVisualStyleBackColor = true;
+            this.ConfirmButton.Click += new System.EventHandler(this.Confirm_Click);
             // 
             // CancelButton
             // 
@@ -75,7 +75,7 @@ namespace SpeakUP
             this.CancelButton.TabIndex = 3;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.CancelButton.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // ChannelForm
             // 
@@ -84,7 +84,7 @@ namespace SpeakUP
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(595, 265);
             this.Controls.Add(this.CancelButton);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ConfirmButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NameBox);
             this.Name = "ChannelForm";
@@ -98,7 +98,7 @@ namespace SpeakUP
 
         private System.Windows.Forms.TextBox NameBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ConfirmButton;
         private System.Windows.Forms.Button CancelButton;
     }
 }

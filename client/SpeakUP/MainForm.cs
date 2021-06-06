@@ -13,12 +13,10 @@ namespace SpeakUP
 {
     public partial class MainForm : Form
     {
-<<<<<<< Updated upstream
+
         private AudioHandler Audio = new AudioHandler();
         private bool working = true;
-=======
-       // private AudioHandler Audio = new AudioHandler();
->>>>>>> Stashed changes
+
         public string OnServer= String.Empty;
         List<string> OnCall = new List<string>();
         public MainForm(string[] Channels, string usrName)
@@ -92,6 +90,7 @@ namespace SpeakUP
                         {
                             UsersBox.Items.RemoveAt(UsersBox.Items.IndexOf(UserLabel.Text));
                             DisconnectButton.Enabled = false;
+                            Audio.Disconnect();
                         });
                         break;
                     case "JON":
@@ -103,6 +102,8 @@ namespace SpeakUP
                             OnServer = ChannelBox.SelectedItem.ToString();
                             if (!UsersBox.Items.Contains(UserLabel.Text))
                                 UsersBox.Items.Add(UserLabel.Text);
+                            Audio.PlaySound();
+                            Audio.RecordSound();
                         });
                         break;
                     case "SHW":

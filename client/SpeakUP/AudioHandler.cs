@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
 using System.Net.Sockets;
-
+using System.Net;
 
 namespace SpeakUP
 {
     class AudioHandler
     {
         UdpClient _UDPclient = new UdpClient(6969);
-        public bool isConnected = false; 
+        public bool isConnected = false;
+        public List<string> OnCall = new List<string>();
+        WaveInEvent waveSource = new WaveInEvent();
+        WaveOut Player = new WaveOut();
 
-        public async Task<byte[]> ReceiveSound()
+        private async Task<byte[]> ReceiveSound()
         {
             try
             {
@@ -27,16 +30,18 @@ namespace SpeakUP
             }
         }
 
-        public async void SendSound(byte[] data)
+        private async void SendSound(byte[] data, string ip)
         {
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse(ip), 6969);
             while (data.Length != 0)
             {
+               
                 var tempData = data.Take(350).ToArray();
                 data = data.Skip(350).ToArray();
-              //  await udpClient.SendAsync(tempBuffer, tempBuffer.Length);
+                await _UDPclient.SendAsync(tempData, tempData.Length, ep);
             }
         }
-        private async void PlaySound()
+        public async void PlaySound()
         {
             byte[] data;
             isConnected = true;
@@ -44,7 +49,7 @@ namespace SpeakUP
             BufferedWaveProvider bufferedWaveProvider = new BufferedWaveProvider(waveFormat);
             bufferedWaveProvider.DiscardOnBufferOverflow = true;
 
-            WaveOut Player = new WaveOut();
+            
             Player.Init(bufferedWaveProvider);
             Player.Play();
 
@@ -59,12 +64,27 @@ namespace SpeakUP
             }
         }
 
-        private void RecordSound()
+        public void RecordSound()
         {
-           WaveInEvent waveSource = new WaveInEvent();
-            waveSource.WaveFormat = new WaveFormat();
-          //  waveSource.DataAvailable += Recorder_DataAvailable;
-            waveSource.StartRecording();
+           
+           waveSource.WaveFormat = new WaveFormat();
+           waveSource.DataAvailable += new EventHandler<WaveInEventArgs>(WaveIn_DataAvailable);
+           waveSource.StartRecording();
         }
+
+        private void WaveIn_DataAvailable(object sender, WaveInEventArgs e)
+        {
+            foreach (string ip in OnCall) { Task.Run(() => SendSound(e.Buffer, ip)); }
+                  
+            
+        }
+
+        public void Disconnect()
+        {
+            waveSource.StopRecording();
+            isConnected = false;
+            Player.Stop();
+        }
+
     }
 }
