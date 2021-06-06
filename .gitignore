@@ -36,3 +36,11 @@ client/.vs/SpeakUP/v16/.suo
 client/SpeakUP/obj/Debug/SpeakUP.csproj.CoreCompileInputs.cache
 client/SpeakUP/obj/Debug/SpeakUP.csproj.FileListAbsolute.txt
 client/SpeakUP/obj/Debug/SpeakUP.csproj.GenerateResource.cache
+client/.vs/SpeakUP/v16/.suo
+*.exe
+*.pdb
+client/SpeakUP/obj/Debug/SpeakUP.csproj.GenerateResource.cache
+client/SpeakUP/obj/Debug/SpeakUP.MainForm.resources
+client/SpeakUP/obj/Debug/SpeakUP.pdb
+server/.vs/TIP_SpeakUP/v16/.suo
+server/TIP_SpeakUP/bin/Debug/netcoreapp3.1/Users.db
