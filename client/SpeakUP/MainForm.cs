@@ -101,7 +101,7 @@ namespace SpeakUP
                             {
                                 DisconnectButton.Enabled = true;
                                 result = result.Skip(1).ToArray();
-                                //Audio.OnCall.Add(new IPEndPoint(IPAddress.Parse(result[1]), 6969));
+                                Audio.OnCall.AddRange(result);
                                 OnServer = ChannelBox.SelectedItem.ToString();
                                 if (!UsersBox.Items.Contains(UserLabel.Text))
                                     UsersBox.Items.Add(UserLabel.Text);
@@ -135,7 +135,7 @@ namespace SpeakUP
                             }));
                             break;
                         case "CAL":
-                            Audio.OnCall.Add(new IPEndPoint(IPAddress.Parse(result[1]), 6969));
+                            Audio.OnCall.Add(result[1]);
                             break;
                         case "ERR":
                             Invoke((MethodInvoker)delegate
