@@ -11,11 +11,8 @@ namespace TIP_SpeakUP
     {
         private TcpListener _server;
         private bool _isRunning;
-<<<<<<< Updated upstream
         private static IPAddress ip = IPAddress.Parse("25.86.153.248");
-=======
-        private static IPAddress ip = IPAddress.Parse("192.168.1.110");
->>>>>>> Stashed changes
+
         private static int port = 6969;
 
 
@@ -88,7 +85,7 @@ namespace TIP_SpeakUP
                     }
                 }catch (Exception e)
                 {
-                    //bClientConnected = false;
+                    bClientConnected = false;
                     Console.WriteLine("OHO ERROR rozłaczam sie XD: " + e.Message);
                   
                 }
