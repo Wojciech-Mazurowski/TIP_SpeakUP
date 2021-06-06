@@ -29,14 +29,12 @@ namespace SpeakUP
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ChannelBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.UserLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LogOutButton = new System.Windows.Forms.Button();
-            this.RefButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.UsersBox = new System.Windows.Forms.ListBox();
             this.DisconnectButton = new System.Windows.Forms.Button();
@@ -50,7 +48,6 @@ namespace SpeakUP
             this.ChannelBox.Name = "ChannelBox";
             this.ChannelBox.Size = new System.Drawing.Size(172, 340);
             this.ChannelBox.TabIndex = 0;
-            this.ChannelBox.Click += new System.EventHandler(this.ChannelBox_Click);
             this.ChannelBox.DoubleClick += new System.EventHandler(this.ChannelBox_DoubleClick);
             // 
             // label1
@@ -109,19 +106,6 @@ namespace SpeakUP
             this.LogOutButton.UseVisualStyleBackColor = true;
             this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
-            // RefButton
-            // 
-            this.RefButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RefButton.BackgroundImage")));
-            this.RefButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.RefButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RefButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RefButton.Location = new System.Drawing.Point(12, 12);
-            this.RefButton.Name = "RefButton";
-            this.RefButton.Size = new System.Drawing.Size(40, 38);
-            this.RefButton.TabIndex = 10;
-            this.RefButton.UseVisualStyleBackColor = true;
-            this.RefButton.Click += new System.EventHandler(this.RefButton_Click);
-            // 
             // AddButton
             // 
             this.AddButton.BackColor = System.Drawing.SystemColors.HotTrack;
@@ -165,7 +149,6 @@ namespace SpeakUP
             this.Controls.Add(this.DisconnectButton);
             this.Controls.Add(this.UsersBox);
             this.Controls.Add(this.AddButton);
-            this.Controls.Add(this.RefButton);
             this.Controls.Add(this.LogOutButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.UserLabel);
@@ -187,7 +170,6 @@ namespace SpeakUP
         private System.Windows.Forms.Label UserLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button LogOutButton;
-        private System.Windows.Forms.Button RefButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.ListBox UsersBox;
         private System.Windows.Forms.Button DisconnectButton;
