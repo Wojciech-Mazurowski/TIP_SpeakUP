@@ -36,10 +36,6 @@ namespace SpeakUP
             this.Close();
         }
 
-        private void RefButton_Click(object sender, EventArgs e)
-        {
-            Client.send("REF");
-        }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
@@ -49,13 +45,6 @@ namespace SpeakUP
             chan.Show();
         }
 
-        private void ChannelBox_Click(object sender, EventArgs e)
-        {
-            if (ChannelBox.SelectedItem != null)
-            {
-                Client.send("SHW$$" + ChannelBox.SelectedItem.ToString());
-            }
-        }
 
         private void ChannelBox_DoubleClick(object sender, EventArgs e)
         {
