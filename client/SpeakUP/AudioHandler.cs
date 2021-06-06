@@ -77,7 +77,7 @@ namespace SpeakUP
 
         private void WaveIn_DataAvailable(object sender, WaveInEventArgs e)
         {
-            foreach (string ip in OnCall) { Task.Run(() => SendSound(e.Buffer, ip)); }
+            Parallel.ForEach(OnCall, ip => { SendSound(e.Buffer, ip); });
             // TestBuffer.AddSamples(e.Buffer, 0, e.BytesRecorded)
 
         }
