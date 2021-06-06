@@ -182,7 +182,7 @@ namespace TIP_SpeakUP
             {
                 {
                     StreamWriter sWriter2 = new StreamWriter(LoginService.ActiveUsers[user].GetStream(), Encoding.ASCII);
-                    Console.WriteLine("wyslalem: " + ans);
+                    Console.WriteLine("wyslalem:  " + ans);
                     sWriter2.WriteLine(ans);
                     sWriter2.Flush();
                 }
