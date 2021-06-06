@@ -96,6 +96,7 @@ namespace TIP_SpeakUP
                 case "EXT":
                     anwser = "EXT";
                     Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("User: " + "127.0.0.1:53536" + " disconnected");
                     Console.ResetColor();
                     Disconnect.Invoke(null, null);
                     break;
