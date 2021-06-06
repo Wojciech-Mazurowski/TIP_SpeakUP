@@ -40,7 +40,7 @@ namespace SpeakUP
                
                 var tempData = data.Take(350).ToArray();
                 data = data.Skip(350).ToArray();
-                await _UDPclient.SendAsync(tempData, tempData.Length, ip);
+                await _UDPclient.SendAsync(tempData, tempData.Length, ep);
             }
         }
         public async void PlaySound()
