@@ -18,7 +18,6 @@ namespace SpeakUP
         private bool working = true;
 
         public string OnServer= String.Empty;
-        List<string> OnCall = new List<string>();
         public MainForm(string[] Channels, string usrName)
         {
             InitializeComponent();
@@ -101,7 +100,7 @@ namespace SpeakUP
                             {
                                 DisconnectButton.Enabled = true;
                                 result = result.Skip(1).ToArray();
-                                OnCall.AddRange(result);
+                                Audio.OnCall.AddRange(result);
                                 OnServer = ChannelBox.SelectedItem.ToString();
                                 if (!UsersBox.Items.Contains(UserLabel.Text))
                                     UsersBox.Items.Add(UserLabel.Text);
@@ -135,7 +134,8 @@ namespace SpeakUP
                             }));
                             break;
                         case "CAL":
-                            OnCall.Add(result[1]);
+
+                            Audio.OnCall.Add(result[1]);
                             break;
                         case "ERR":
                             Invoke((MethodInvoker)delegate
