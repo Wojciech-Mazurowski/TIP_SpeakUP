@@ -14,7 +14,7 @@ namespace SpeakUP
     {
         UdpClient _UDPclient = new UdpClient(6969);
         public bool isConnected = false;
-        public List<string> OnCall = new List<string>();
+        public List<IPEndPoint> OnCall = new List<IPEndPoint>();
         WaveInEvent waveSource = new WaveInEvent();
         WaveOut Player = new WaveOut();
 
@@ -30,15 +30,14 @@ namespace SpeakUP
             }
         }
 
-        private async void SendSound(byte[] data, string ip)
+        private async void SendSound(byte[] data, IPEndPoint ip)
         {
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse(ip), 6969);
             while (data.Length != 0)
             {
                
                 var tempData = data.Take(350).ToArray();
                 data = data.Skip(350).ToArray();
-                await _UDPclient.SendAsync(tempData, tempData.Length, ep);
+                await _UDPclient.SendAsync(tempData, tempData.Length, ip);
             }
         }
         public async void PlaySound()
@@ -74,7 +73,7 @@ namespace SpeakUP
 
         private void WaveIn_DataAvailable(object sender, WaveInEventArgs e)
         {
-            foreach (string ip in OnCall) { Task.Run(() => SendSound(e.Buffer, ip)); }
+            foreach (IPEndPoint ip in OnCall) { Task.Run(() => SendSound(e.Buffer, ip)); }
                   
             
         }

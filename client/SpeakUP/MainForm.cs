@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -80,8 +81,9 @@ namespace SpeakUP
                 string answ = Client.listen();
                 if (!String.IsNullOrEmpty(answ))
                 {
+                    Console.WriteLine(answ);
                     string[] result = answ.Split(new string[] { "$$" }, StringSplitOptions.None);
-
+                    
 
                     switch (result[0])
                     {
@@ -100,7 +102,7 @@ namespace SpeakUP
                             {
                                 DisconnectButton.Enabled = true;
                                 result = result.Skip(1).ToArray();
-                                Audio.OnCall.AddRange(result);
+                                Audio.OnCall.Add(new IPEndPoint(IPAddress.Parse(result[1]), 6969));
                                 OnServer = ChannelBox.SelectedItem.ToString();
                                 if (!UsersBox.Items.Contains(UserLabel.Text))
                                     UsersBox.Items.Add(UserLabel.Text);
@@ -134,8 +136,7 @@ namespace SpeakUP
                             }));
                             break;
                         case "CAL":
-
-                            Audio.OnCall.Add(result[1]);
+                            Audio.OnCall.Add(new IPEndPoint(IPAddress.Parse(result[1]), 6969));
                             break;
                         case "ERR":
                             Invoke((MethodInvoker)delegate
