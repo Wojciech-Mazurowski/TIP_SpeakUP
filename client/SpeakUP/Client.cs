@@ -14,7 +14,7 @@ namespace SpeakUP
         private static StreamWriter _streamWriter;
         private static bool _isConnected;
         public static string data;
-        public static string server_ip = "192.168.1.110";
+        public static string server_ip = "25.86.153.248";
         public static int port = 6969;
         public static String streamDataIncomming;
 

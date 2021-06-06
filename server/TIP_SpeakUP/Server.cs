@@ -11,7 +11,7 @@ namespace TIP_SpeakUP
     {
         private TcpListener _server;
         private bool _isRunning;
-        private static IPAddress ip = IPAddress.Parse("127.0.0.1");
+        private static IPAddress ip = IPAddress.Parse("25.86.153.248");
         private static int port = 6969;
 
 
@@ -64,31 +64,33 @@ namespace TIP_SpeakUP
                 try
                 {
                     Data = sReader.ReadLine();
-              
-                     if (Data.Split("$$")[0] == "REG" || Data.Split("$$")[0] == "LOG")
+
+                    Console.WriteLine("odebralem :" + " " + Data);
+                    if (Data.Split("$$")[0] == "REG" || Data.Split("$$")[0] == "LOG" || Data.Split("$$")[0] == "JON")
                     {
                         string ans = Functions.DecodeOperation(Data, client);
-                      
+                        Console.WriteLine("wysylam :" + " " + ans);
                         sWriter.WriteLine(ans);
                         sWriter.Flush();
 
                     }
                     else
-                    {   
+                    {
                         string ans = Functions.DecodeOperation(Data);
-                      
+                        Console.WriteLine("wysylam :" + " " + ans);
                         sWriter.WriteLine(ans);
                         sWriter.Flush();
 
                     }
-                }
-                catch (Exception e)
+                }catch (Exception e)
                 {
-                    bClientConnected = false;
+                    //bClientConnected = false;
                     Console.WriteLine("OHO ERROR rozłaczam sie XD: " + e.Message);
+                  
                 }
 
-            }
+
+        }
             client.Close();
         }
 

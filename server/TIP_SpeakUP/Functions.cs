@@ -49,6 +49,7 @@ namespace TIP_SpeakUP
                     {
                         anwser += "$$" + e.Key;
                     }
+                    Send_server_names_to_others();
                     break;
                 case "SHW":
                     anwser = "SHW";
@@ -119,6 +120,7 @@ namespace TIP_SpeakUP
             foreach(string user in Voicechats[servername]) {
                 if (user != login)
                 {
+                    Console.WriteLine("user: " + user + "jego IP: " + LoginService.ActiveUsers[user].Client.RemoteEndPoint.ToString().Split(':')[0]);
                     ans += "$$"+LoginService.ActiveUsers[user].Client.RemoteEndPoint.ToString().Split(':')[0];
                 }
             }
@@ -130,17 +132,35 @@ namespace TIP_SpeakUP
 
         public static void Send_IP_address_to_others(TcpClient client, string servername, string login)
         {
-            string ans = "CAL";
+            string ans = "CAL$$";
 
              foreach(string user in Voicechats[servername]){
                     if (user != login){
 
-                    StreamWriter sWriter = new StreamWriter(LoginService.ActiveUsers[user].GetStream(), Encoding.ASCII);
-                    sWriter.WriteLine(ans + client.Client.RemoteEndPoint.ToString().Split(':')[0]);
-                    sWriter.Dispose();
+                    StreamWriter sWriter2 = new StreamWriter(LoginService.ActiveUsers[user].GetStream(), Encoding.ASCII);
+                    Console.WriteLine("wyslalem " + ans +client.Client.RemoteEndPoint.ToString().Split(':')[0]+ " do " + LoginService.ActiveUsers[user].Client.RemoteEndPoint.ToString());
+                    sWriter2.WriteLine(ans + client.Client.RemoteEndPoint.ToString().Split(':')[0]);
+                    sWriter2.Flush();
 
                     }
              }
+        }
+
+        public static void Send_server_names_to_others()
+        {
+            string ans = "REF";
+            foreach (var e in Voicechats)
+            {
+                ans += "$$" + e.Key;
+            }
+
+            foreach (string user in LoginService.ActiveUsers.Keys)
+            {
+                    StreamWriter sWriter2 = new StreamWriter(LoginService.ActiveUsers[user].GetStream(), Encoding.ASCII);
+                    Console.WriteLine("wyslalem: " + ans);
+                    sWriter2.WriteLine(ans);
+                    sWriter2.Flush();
+            }
         }
     }
 }
