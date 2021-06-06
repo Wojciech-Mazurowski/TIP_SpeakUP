@@ -89,7 +89,6 @@ namespace SpeakUP
                     {
                         case "DSC":
                             OnServer = String.Empty;
-                            //  Audio.isConnected = false;
                             Invoke((MethodInvoker)delegate
                             {
                                 UsersBox.Items.RemoveAt(UsersBox.Items.IndexOf(UserLabel.Text));
@@ -102,7 +101,7 @@ namespace SpeakUP
                             {
                                 DisconnectButton.Enabled = true;
                                 result = result.Skip(1).ToArray();
-                                Audio.OnCall.Add(new IPEndPoint(IPAddress.Parse(result[1]), 6969));
+                                //Audio.OnCall.Add(new IPEndPoint(IPAddress.Parse(result[1]), 6969));
                                 OnServer = ChannelBox.SelectedItem.ToString();
                                 if (!UsersBox.Items.Contains(UserLabel.Text))
                                     UsersBox.Items.Add(UserLabel.Text);

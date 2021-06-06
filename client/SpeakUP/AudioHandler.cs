@@ -18,6 +18,8 @@ namespace SpeakUP
         WaveInEvent waveSource = new WaveInEvent();
         WaveOut Player = new WaveOut();
 
+        BufferedWaveProvider TestBuffer = new BufferedWaveProvider(new WaveFormat());
+
         private async Task<byte[]> ReceiveSound()
         {
             try
@@ -63,19 +65,20 @@ namespace SpeakUP
             }
         }
 
+        
         public void RecordSound()
         {
            
            waveSource.WaveFormat = new WaveFormat();
-           waveSource.DataAvailable += new EventHandler<WaveInEventArgs>(WaveIn_DataAvailable);
+           waveSource.DataAvailable += WaveIn_DataAvailable;
            waveSource.StartRecording();
         }
 
         private void WaveIn_DataAvailable(object sender, WaveInEventArgs e)
         {
             foreach (IPEndPoint ip in OnCall) { Task.Run(() => SendSound(e.Buffer, ip)); }
-                  
-            
+            // TestBuffer.AddSamples(e.Buffer, 0, e.BytesRecorded);
+
         }
 
         public void Disconnect()
@@ -83,6 +86,18 @@ namespace SpeakUP
             waveSource.StopRecording();
             isConnected = false;
             Player.Stop();
+        }
+
+        public void PlaySoundSelf() //for testing
+        {
+            isConnected = true;
+            WaveFormat waveFormat = new WaveFormat();
+            BufferedWaveProvider bufferedWaveProvider = new BufferedWaveProvider(waveFormat);
+            bufferedWaveProvider.DiscardOnBufferOverflow = true;
+
+
+            Player.Init(TestBuffer);
+            Player.Play();
         }
 
     }
