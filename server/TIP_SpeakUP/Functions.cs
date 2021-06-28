@@ -85,6 +85,7 @@ namespace TIP_SpeakUP
 
                     break;
                 case "DSC":
+                    server_name = Split_OP[1];
                     login = Split_OP[2];
                     foreach (var e in Voicechats.Values)
                     {
@@ -95,6 +96,8 @@ namespace TIP_SpeakUP
                         }
                     }
                     anwser = "DSC";
+                    Send_IP_address_to_others(client, server_name, login);
+                    Send_active_users_to_others(server_name);
                     break;
                 case "EXT":
                     anwser = "EXT";

@@ -124,7 +124,9 @@ namespace SpeakUP
                             }));
                             break;
                         case "CAL":
-                            Audio.OnCall.Add(result[1]);
+                            if (!Audio.OnCall.Contains(result[1]))
+                                Audio.OnCall.Add(result[1]);
+                            else Audio.OnCall.Remove(result[1]);
                             break;
                         case "ERR":
                             Invoke((MethodInvoker)delegate
