@@ -85,6 +85,7 @@ namespace TIP_SpeakUP
 
                     break;
                 case "DSC":
+                    server_name = Split_OP[1];
                     login = Split_OP[2];
                     foreach (var e in Voicechats.Values)
                     {
@@ -95,6 +96,8 @@ namespace TIP_SpeakUP
                         }
                     }
                     anwser = "DSC";
+                    Send_IP_address_to_others(client, server_name, login);
+                    Send_active_users_to_others(server_name);
                     break;
                 case "EXT":
                     anwser = "EXT";
@@ -182,7 +185,7 @@ namespace TIP_SpeakUP
             {
                 {
                     StreamWriter sWriter2 = new StreamWriter(LoginService.ActiveUsers[user].GetStream(), Encoding.ASCII);
-                    Console.WriteLine("wyslalem: " + ans);
+                    Console.WriteLine("wyslalem:  " + ans);
                     sWriter2.WriteLine(ans);
                     sWriter2.Flush();
                 }

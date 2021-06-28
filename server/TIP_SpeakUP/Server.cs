@@ -11,7 +11,7 @@ namespace TIP_SpeakUP
     {
         private TcpListener _server;
         private bool _isRunning;
-        private static IPAddress ip = IPAddress.Parse("25.86.153.248");
+        private static IPAddress ip = IPAddress.Parse("26.61.37.182");
 
         private static int port = 6969;
 
@@ -67,7 +67,7 @@ namespace TIP_SpeakUP
                     Data = sReader.ReadLine();
 
                     Console.WriteLine("odebralem :" + " " + Data);
-                    if (Data.Split("$$")[0] == "REG" || Data.Split("$$")[0] == "LOG" || Data.Split("$$")[0] == "JON")
+                    if (Data.Split("$$")[0] == "REG" || Data.Split("$$")[0] == "LOG" || Data.Split("$$")[0] == "JON" || Data.Split("$$")[0] == "DSC")
                     {
                         string ans = Functions.DecodeOperation(Data, client);
                         Console.WriteLine("wysylam :" + " " + ans);

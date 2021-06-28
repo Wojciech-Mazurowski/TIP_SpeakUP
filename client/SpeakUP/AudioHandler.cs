@@ -38,8 +38,8 @@ namespace SpeakUP
             while (data.Length != 0)
             {
                
-                var tempData = data.Take(350).ToArray();
-                data = data.Skip(350).ToArray();
+                var tempData = data.Take(1000).ToArray();
+                data = data.Skip(1000).ToArray();
                 await _UDPclient.SendAsync(tempData, tempData.Length, ep);
             }
         }

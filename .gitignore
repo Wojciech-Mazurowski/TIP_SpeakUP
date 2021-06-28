@@ -44,3 +44,9 @@ client/SpeakUP/obj/Debug/SpeakUP.MainForm.resources
 client/SpeakUP/obj/Debug/SpeakUP.pdb
 server/.vs/TIP_SpeakUP/v16/.suo
 server/TIP_SpeakUP/bin/Debug/netcoreapp3.1/Users.db
+server/.vs/TIP_SpeakUP/v16/.suo
+server/TIP_SpeakUP/bin/Debug/netcoreapp3.1/TIP_SpeakUP.dll
+server/TIP_SpeakUP/bin/Debug/netcoreapp3.1/TIP_SpeakUP.pdb
+server/TIP_SpeakUP/obj/Debug/netcoreapp3.1/TIP_SpeakUP.csprojAssemblyReference.cache
+server/TIP_SpeakUP/obj/Debug/netcoreapp3.1/TIP_SpeakUP.dll
+server/TIP_SpeakUP/obj/Debug/netcoreapp3.1/TIP_SpeakUP.pdb
