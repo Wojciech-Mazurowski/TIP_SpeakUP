@@ -66,11 +66,9 @@ namespace TIP_SpeakUP
                 {
                     Data = sReader.ReadLine();
 
-                    Console.WriteLine("odebralem :" + " " + Data);
                     if (Data.Split("$$")[0] == "REG" || Data.Split("$$")[0] == "LOG" || Data.Split("$$")[0] == "JON" || Data.Split("$$")[0] == "DSC")
                     {
                         string ans = Functions.DecodeOperation(Data, client);
-                        Console.WriteLine("wysylam :" + " " + ans);
                         sWriter.WriteLine(ans);
                         sWriter.Flush();
 
@@ -78,7 +76,6 @@ namespace TIP_SpeakUP
                     else
                     {
                         string ans = Functions.DecodeOperation(Data);
-                        Console.WriteLine("wysylam :" + " " + ans);
                         sWriter.WriteLine(ans);
                         sWriter.Flush();
 
@@ -86,7 +83,7 @@ namespace TIP_SpeakUP
                 }catch (Exception e)
                 {
                     bClientConnected = false;
-                    Console.WriteLine("OHO ERROR rozłaczam sie XD: " + e.Message);
+                    Console.WriteLine("OHO ERROR: " + e.Message);
                   
                 }
 
