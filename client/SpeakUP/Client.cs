@@ -14,7 +14,7 @@ namespace SpeakUP
         private static StreamWriter _streamWriter;
         private static bool _isConnected;
         public static string data;
-        public static string server_ip = "26.61.37.182";
+        public static string server_ip = "127.0.0.1";
         public static int port = 6969;
         public static String streamDataIncomming;
 
@@ -75,9 +75,9 @@ namespace SpeakUP
             return "false";
         }
 
-        public static void close()
+        public static void close(string name)
         {
-            send("EXT");
+            send("EXT$$" + name);
             listen();
             _streamReader.Close();
             _streamWriter.Close();

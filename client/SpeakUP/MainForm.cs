@@ -32,8 +32,9 @@ namespace SpeakUP
         private void LogOutButton_Click(object sender, EventArgs e)
         {
             working = false;
-            Client.close();
+            Client.close(UserLabel.Text);
             this.Close();
+            Audio._UDPclient.Close();
         }
 
 

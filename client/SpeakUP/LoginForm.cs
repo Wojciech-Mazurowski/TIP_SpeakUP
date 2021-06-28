@@ -20,7 +20,7 @@ namespace SpeakUP
         private void LoginButton_Click(object sender, EventArgs e)
         {
             Client.runTCPclient();
-            Client.send("LOG$$"+ LoginBox.Text + "$$" + PasswordBox.Text);
+            Client.send("LOG$$"+ LoginBox.Text + "$$" + SHAHandler.generateHash(PasswordBox.Text));
             string answ = Client.listen();
             if (!String.IsNullOrEmpty(answ))
             {
@@ -35,7 +35,7 @@ namespace SpeakUP
                 }
                 else
                 {
-                    Client.close();
+                    Client.close(LoginBox.Text);
                     MessageBox.Show(result[1]);
                 }
             }
@@ -44,7 +44,7 @@ namespace SpeakUP
         private void RegButton_Click(object sender, EventArgs e)
         {
             Client.runTCPclient();
-            Client.send("REG$$" + LoginBox.Text + "$$" + PasswordBox.Text);
+            Client.send("REG$$" + LoginBox.Text + "$$" + SHAHandler.generateHash(PasswordBox.Text));
             string answ = Client.listen();
             if (!String.IsNullOrEmpty(answ))
             {
@@ -60,7 +60,7 @@ namespace SpeakUP
                 }
                 else
                 {
-                    Client.close();
+                    Client.close(LoginBox.Text);
                     MessageBox.Show(result[1]);
 
                 }

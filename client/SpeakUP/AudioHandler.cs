@@ -12,12 +12,12 @@ namespace SpeakUP
 {
     class AudioHandler
     {
-        UdpClient _UDPclient = new UdpClient(6969);
+        public UdpClient _UDPclient = new UdpClient(6969);
         public bool isConnected = false;
         public List<string> OnCall = new List<string>();
         WaveInEvent waveSource = new WaveInEvent();
         WaveOut Player = new WaveOut();
-
+       
         BufferedWaveProvider TestBuffer = new BufferedWaveProvider(new WaveFormat());
 
         private async Task<byte[]> ReceiveSound()
