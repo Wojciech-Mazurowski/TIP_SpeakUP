@@ -50,6 +50,8 @@ namespace SpeakUP
         {
             if(ChannelBox.SelectedItem != null)
             {
+                if (!string.IsNullOrEmpty(OnServer))
+                    Audio.Disconnect();
                 Client.send("JON$$" + ChannelBox.SelectedItem.ToString() + "$$" + UserLabel.Text);
             }
 
