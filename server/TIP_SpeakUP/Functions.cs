@@ -100,6 +100,7 @@ namespace TIP_SpeakUP
                     Send_active_users_to_others(server_name);
                     break;
                 case "EXT":
+                    LoginService.ActiveUsers.Remove(Split_OP[1]);
                     anwser = "EXT";
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("User: " + "127.0.0.1:53536" + " disconnected");
@@ -147,7 +148,8 @@ namespace TIP_SpeakUP
                 {
 
                     StreamWriter sWriter2 = new StreamWriter(LoginService.ActiveUsers[user].GetStream(), Encoding.ASCII);
-                    Console.WriteLine("wyslalem " + ans + client.Client.RemoteEndPoint.ToString().Split(':')[0] + " do " + LoginService.ActiveUsers[user].Client.RemoteEndPoint.ToString());
+                  
+
                     sWriter2.WriteLine(ans + client.Client.RemoteEndPoint.ToString().Split(':')[0]);
                     sWriter2.Flush();
 
@@ -166,7 +168,7 @@ namespace TIP_SpeakUP
             foreach (string user in LoginService.ActiveUsers.Keys)
             {
                 StreamWriter sWriter2 = new StreamWriter(LoginService.ActiveUsers[user].GetStream(), Encoding.ASCII);
-                Console.WriteLine("wyslalem: " + ans);
+
                 sWriter2.WriteLine(ans);
                 sWriter2.Flush();
             }
@@ -185,7 +187,7 @@ namespace TIP_SpeakUP
             {
                 {
                     StreamWriter sWriter2 = new StreamWriter(LoginService.ActiveUsers[user].GetStream(), Encoding.ASCII);
-                    Console.WriteLine("wyslalem:  " + ans);
+
                     sWriter2.WriteLine(ans);
                     sWriter2.Flush();
                 }
