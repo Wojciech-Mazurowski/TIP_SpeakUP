@@ -87,6 +87,7 @@ namespace SpeakUP
             waveSource.StopRecording();
             isConnected = false;
             Player.Stop();
+            //DLA GITHUBA :)
         }
 
         public void PlaySoundSelf() //for testing
