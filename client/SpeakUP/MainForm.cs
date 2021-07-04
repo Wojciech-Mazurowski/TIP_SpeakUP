@@ -62,7 +62,8 @@ namespace SpeakUP
         {
             if (!String.IsNullOrEmpty(OnServer))
             {
-                Client.send("DSC$$" + ChannelBox.SelectedItem.ToString() + "$$" + UserLabel.Text);
+                if(ChannelBox.SelectedItem != null)
+                    Client.send("DSC$$" + ChannelBox.SelectedItem.ToString() + "$$" + UserLabel.Text);
             }
         }
 
@@ -107,6 +108,7 @@ namespace SpeakUP
                             {
                                 UsersBox.Items.Clear();
                                 UsersBox.Items.AddRange(result);
+                                Audio.refreshPlayer();
                             });
                             break;
                         case "REF":

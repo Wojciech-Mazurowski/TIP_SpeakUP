@@ -19,7 +19,13 @@ namespace SpeakUP
         WaveOut Player = new WaveOut();
        
         BufferedWaveProvider TestBuffer = new BufferedWaveProvider(new WaveFormat());
+        BufferedWaveProvider bufferedWaveProvider = new BufferedWaveProvider(new WaveFormat());
 
+        public AudioHandler()
+        {
+            waveSource.DataAvailable += WaveIn_DataAvailable;
+            waveSource.WaveFormat = new WaveFormat();
+        }
         private async Task<byte[]> ReceiveSound()
         {
             try
@@ -35,7 +41,7 @@ namespace SpeakUP
         private async void SendSound(byte[] data, string ip)
         {
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse(ip), 6969);
-            while (data.Length != 0)
+            while (data.Length != 0 && OnCall.Count > 0)
             {
                
                 var tempData = data.Take(1000).ToArray();
@@ -47,8 +53,6 @@ namespace SpeakUP
         {
             byte[] data;
             isConnected = true;
-            WaveFormat waveFormat = new WaveFormat();
-            BufferedWaveProvider bufferedWaveProvider = new BufferedWaveProvider(waveFormat);
             bufferedWaveProvider.DiscardOnBufferOverflow = true;
 
             
@@ -69,9 +73,6 @@ namespace SpeakUP
         
         public void RecordSound()
         {
-           
-           waveSource.WaveFormat = new WaveFormat();
-           waveSource.DataAvailable += WaveIn_DataAvailable;
            waveSource.StartRecording();
         }
 
@@ -87,6 +88,8 @@ namespace SpeakUP
             waveSource.StopRecording();
             isConnected = false;
             Player.Stop();
+            bufferedWaveProvider.ClearBuffer();
+            OnCall.Clear();
             //DLA GITHUBA :)
         }
 
@@ -102,5 +105,14 @@ namespace SpeakUP
             Player.Play();
         }
 
+        public void refreshPlayer()
+        {
+            if (isConnected)
+            {
+                Player.Stop();
+                bufferedWaveProvider.ClearBuffer();
+                Player.Play();
+            }
+        }
     }
 }
