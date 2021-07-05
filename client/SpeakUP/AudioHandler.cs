@@ -12,7 +12,7 @@ namespace SpeakUP
 {
     class AudioHandler
     {
-        public UdpClient _UDPclient = new UdpClient(6969);
+        public UdpClient _UDPclient = new UdpClient(54321);
         public bool isConnected = false;
         public List<string> OnCall = new List<string>();
         WaveInEvent waveSource = new WaveInEvent();
@@ -40,7 +40,7 @@ namespace SpeakUP
 
         private async void SendSound(byte[] data, string ip)
         {
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse(ip), 6969);
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse(ip), 54321);
             while (data.Length != 0 && OnCall.Count > 0)
             {
                

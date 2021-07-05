@@ -56,6 +56,15 @@ namespace SpeakUP
                 Client.send("JON$$" + ChannelBox.SelectedItem.ToString() + "$$" + UserLabel.Text);
             }
 
+
+        }
+
+        private void ChannelBox_Click(object sender, EventArgs e)
+        {
+            if (ChannelBox.SelectedItem != null)
+            {
+                Client.send("SHW$$" + ChannelBox.SelectedItem.ToString());
+            }
         }
 
         private void DisconnectButton_Click(object sender, EventArgs e)
@@ -144,5 +153,7 @@ namespace SpeakUP
                 }
             }
         }
+
+       
     }
 }

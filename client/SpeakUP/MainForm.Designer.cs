@@ -48,6 +48,7 @@ namespace SpeakUP
             this.ChannelBox.Name = "ChannelBox";
             this.ChannelBox.Size = new System.Drawing.Size(172, 340);
             this.ChannelBox.TabIndex = 0;
+            this.ChannelBox.Click += new System.EventHandler(this.ChannelBox_Click);
             this.ChannelBox.DoubleClick += new System.EventHandler(this.ChannelBox_DoubleClick);
             // 
             // label1
